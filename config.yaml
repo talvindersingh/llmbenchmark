@@ -1,0 +1,49 @@
+# List the Ollama models to benchmark (must be pulled locally)
+models:
+  # - name: codellama:7b
+  #   options:
+  #     temperature: 0.0
+  #     num_predict: 1024
+  # - name: starcoder2:3b
+  #   options:
+  #     temperature: 0.0
+  #     num_predict: 1024
+  - name: phi4-mini:3.8b
+    options:
+      temperature: 0.0
+      num_predict: 1024      
+  # - name: deepseek-coder:1.3b
+  #   options:
+  #     temperature: 0.0
+  #     num_predict: 1024
+  - name: llama3.2:1b
+    options:
+      temperature: 0.0
+      num_predict: 1024     
+  - name: qwen2.5:1.5b
+    options:
+      temperature: 0.0
+      num_predict: 1024       
+# Which tasks to run
+tasks:
+  # - code_generation
+  # - code_review
+  # - doc_generation
+  # - iac_generation
+  # - log_summarization
+  # - ticket_classification
+  # - kb_qa
+  - doc_retrieval_summarization
+
+# Paths
+data_dir: data
+output_dir: results
+
+# Optional: a judge model (also via Ollama) for faithfulness/helpfulness rubrics
+judge_model:
+  provider: openai
+  name: gpt-4o-mini
+  api_key_env: OPENAI_API_KEY
+  options:
+    temperature: 0.0
+    max_tokens: 32

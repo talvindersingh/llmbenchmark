@@ -1,0 +1,894 @@
+task,id,model,compile_success,static_warnings,rougeL_f_vs_spec,token_f1_vs_spec,eval_count,eval_duration_ms,prompt_eval_count,prompt_eval_duration_ms,total_duration_ms,wall_time_ms,spec_compliance_score,output
+code_generation,cg1,codellama:7b,False,-1.0,0.06122448979591836,0.06122448979591836,230,51315413300,99,10479138100,64867278800,66931,4.0,"```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import List
+
+app = FastAPI()
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+
+users = []
+
+@app.get(""/users"")
+def read_users():
+    return users
+
+@app.post(""/users"")
+def create_user(user: User):
+    users.append(user)
+    return user
+
+@app.put(""/users/{id}"")
+def update_user(id: int, user: User):
+    for i in range(len(users)):
+        if users[i].id == id:
+            users[i] = user
+            break
+    return user
+
+@app.delete(""/users/{id}"")
+def delete_user(id: int):
+    global users
+    users = [user for user in users if user.id != id]
+    return {""message"": f""User with ID {id} deleted""}
+```"
+code_generation,cg2,codellama:7b,False,,0.0,0.0,496,115088362600,108,5434506300,120813007500,122864,3.0,"```java
+@Entity
+@Table(name = ""products"")
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String name;
+
+    @Column(nullable = false)
+    private BigDecimal price;
+}
+```
+
+```java
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Long> {
+}
+```
+
+```java
+@Service
+public class ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    public Optional<Product> getProductById(Long id) {
+        return productRepository.findById(id);
+    }
+
+    public void createProduct(Product product) {
+        productRepository.save(product);
+    }
+
+    public void updateProduct(Product product) {
+        productRepository.save(product);
+    }
+
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
+    }
+}
+```
+
+```java
+@RestController
+public class ProductController {
+    @Autowired
+    private ProductService productService;
+
+    @GetMapping(""/products"")
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
+    }
+
+    @GetMapping(""/products/{id}"")
+    public Optional<Product> getProductById(@PathVariable Long id) {
+        return productService.getProductById(id);
+    }
+
+    @PostMapping(""/products"")
+    public void createProduct(@RequestBody Product product) {
+        productService.createProduct(product);
+    }
+
+    @PutMapping(""/products/{id}"")
+    public void updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        productService.updateProduct(product);
+    }
+
+    @DeleteMapping(""/products/{id}"")
+    public void deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+    }
+}
+```"
+code_generation,cg3,codellama:7b,False,-1.0,0.022727272727272724,0.022727272727272724,660,155010146400,112,6106689200,161512248700,163549,4.0,"```
+from flask import Flask, jsonify, request, make_response
+from flask_sqlalchemy import SQLAlchemy
+from datetime import date
+import os
+
+app = Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+db = SQLAlchemy(app)
+
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    author = db.Column(db.String(100), nullable=False)
+    published_date = db.Column(db.Date, nullable=False)
+
+@app.route('/books', methods=['GET'])
+def get_books():
+    books = Book.query.all()
+    return jsonify([book.serialize() for book in books])
+
+@app.route('/books', methods=['POST'])
+def create_book():
+    data = request.get_json()
+    book = Book(title=data['title'], author=data['author'], published_date=data['published_date'])
+    db.session.add(book)
+    db.session.commit()
+    return jsonify(book.serialize())
+
+@app.route('/books/<int:id>', methods=['GET'])
+def get_book(id):
+    book = Book.query.get(id)
+    if book is None:
+        return make_response('Book not found', 404)
+    return jsonify(book.serialize())
+
+@app.route('/books/<int:id>', methods=['PUT'])
+def update_book(id):
+    data = request.get_json()
+    book = Book.query.get(id)
+    if book is None:
+        return make_response('Book not found', 404)
+    book.title = data['title']
+    book.author = data['author']
+    book.published_date = data['published_date']
+    db.session.commit()
+    return jsonify(book.serialize())
+
+@app.route('/books/<int:id>', methods=['DELETE'])
+def delete_book(id):
+    book = Book.query.get(id)
+    if book is None:
+        return make_response('Book not found', 404)
+    db.session.delete(book)
+    db.session.commit()
+    return jsonify({'message': 'Book deleted successfully'})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```"
+code_generation,cg4,codellama:7b,False,,0.0,0.0,158,41547382000,118,7172370200,48872220700,50914,2.0,"```java
+@Controller(""/orders"")
+class OrderController {
+    @Get(""/{id}"")
+    fun getOrder(id: Long): Mono<Order> = orderRepository.findById(id)
+    
+    @Post(""/"")
+    fun createOrder(@Body order: Order): Mono<Order> = orderRepository.save(order)
+    
+    @Put(""/{id}"")
+    fun updateOrder(id: Long, @Body order: Order): Mono<Order> = orderRepository.update(id, order)
+    
+    @Delete(""/{id}"")
+    fun deleteOrder(id: Long): Mono<Void> = orderRepository.deleteById(id)
+}
+```"
+code_generation,cg5,codellama:7b,False,-1.0,0.013986013986013986,0.020979020979020976,1024,287439327800,110,5637762200,293744781700,295817,3.0,"```
+from fastapi import FastAPI
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import pytest
+
+app = FastAPI()
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl=""token"")
+
+@app.post(""/login/access-token"", response_model=Token)
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = authenticate_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(status_code=401, detail=""Incorrect username or password"")
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    return {
+        ""access_token"": create_access_token(data={""sub"": user.username}),
+        ""token_type"": ""bearer"",
+        ""expires_in"": access_token_expires,
+    }
+
+@app.post(""/tasks/"")
+async def create_task(task: Task):
+    return {""id"": task.id, ""title"": task.title, ""done"": task.done}
+
+@app.get(""/tasks/{id}"")
+async def read_task(id: int):
+    task = get_task(id)
+    if not task:
+        raise HTTPException(status_code=404, detail=""Task not found"")
+    return {""id"": task.id, ""title"": task.title, ""done"": task.done}
+
+@app.put(""/tasks/{id}"")
+async def update_task(id: int, task: Task):
+    task = get_task(id)
+    if not task:
+        raise HTTPException(status_code=404, detail=""Task not found"")
+    task.title = task.title
+    task.done = task.done
+    return {""id"": task.id, ""title"": task.title, ""done"": task.done}
+
+@app.delete(""/tasks/{id}"")
+async def delete_task(id: int):
+    task = get_task(id)
+    if not task:
+        raise HTTPException(status_code=404, detail=""Task not found"")
+    remove_task(id)
+    return {""message"": ""Task deleted""}
+
+@app.get(""/tasks/"")
+async def read_tasks():
+    tasks = get_tasks()
+    return [{""id"": task.id, ""title"": task.title, ""done"": task.done} for task in tasks]
+
+def authenticate_user(username: str, password: str):
+    user = User.query.filter_by(username=username).first()
+    if not user or not check_password_hash(user.password, password):
+        return None
+    return user
+
+def create_access_token(*, data: dict):
+    to_encode = data.copy()
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    to_encode.update({""exp"": expire})
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
+
+def get_task(id: int):
+    task = Task.query.get(id)
+    return task
+
+def get_tasks():
+    tasks = Task.query.all()
+    return tasks
+
+def remove_task(id: int):
+    task = Task.query.get(id)
+    if not task:
+        raise HTTPException(status_code=404, detail=""Task not found"")
+    db.session.delete(task)
+    db.session.commit()
+
+def create_user(username: str, password: str):
+    user = User(username=username, password=password)
+    db.session.add(user)
+    db.session.commit()
+    return user
+
+def get_user(username: str):
+    user = User.query.filter_by(username=username).first()
+    return user
+
+def create_task(title: str, done: bool):
+    task = Task(title=title, done=done)
+"
+code_generation,cg1,codellama:7b,False,,0.017543859649122806,0.017543859649122806,530,159321118300,115,6747754300,166444118500,168489,4.0,"```
+const express = require('express');
+const app = express();
+const users = new Map();
+app.get('/users', (req, res) => {
+  const userList = [];
+  for (const [id, user] of users) {
+    userList.push(user);
+  }
+  res.json(userList);
+});
+app.post('/users', (req, res) => {
+  const { name, email } = req.body;
+  if (!name || !email) {
+    return res.status(400).json({ message: 'Name and email are required' });
+  }
+  const id = users.size + 1;
+  users.set(id, { id, name, email });
+  res.json({ message: `User ${name} added successfully` });
+});
+app.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+  if (!users.has(id)) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+  const user = users.get(id);
+  res.json(user);
+});
+app.put('/users/:id', (req, res) => {
+  const { id } = req.params;
+  if (!users.has(id)) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+  const user = users.get(id);
+  const { name, email } = req.body;
+  if (name) {
+    user.name = name;
+  }
+  if (email) {
+    user.email = email;
+  }
+  res.json({ message: `User ${user.name} updated successfully` });
+});
+app.delete('/users/:id', (req, res) => {
+  const { id } = req.params;
+  if (!users.has(id)) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+  users.delete(id);
+  res.json({ message: `User deleted successfully` });
+});
+app.listen(3000, () => console.log('Server started on port 3000'));
+```"
+code_generation,cg2,codellama:7b,True,,0.0,0.0,460,136731062600,116,5780621900,142856474000,144910,3.0,"```
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { ProductService } from './product.service';
+import { CreateProductDto } from './dto/create-product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
+import { ValidationPipe } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Product } from './entities/product.entity';
+import { Repository } from 'typeorm';
+import { class-validator, class-transformer } from 'class-transformer';
+
+@Controller('products')
+export class ProductController {
+  constructor(private readonly productService: ProductService) {}
+
+  @Post()
+  async create(@Body(ValidationPipe) createProductDto: CreateProductDto) {
+    return this.productService.create(createProductDto);
+  }
+
+  @Get()
+  async findAll(): Promise<Product[]> {
+    return this.productService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<Product> {
+    return this.productService.findOne(+id);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body(ValidationPipe) updateProductDto: UpdateProductDto) {
+    return this.productService.update(+id, updateProductDto);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string): Promise<void> {
+    return this.productService.remove(+id);
+  }
+}
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Product])],
+  controllers: [ProductController],
+  providers: [ProductService, Repository],
+})
+export class ProductModule {}
+```"
+code_generation,cg3,codellama:7b,True,,0.027397260273972605,0.027397260273972605,860,234633529800,128,6751052600,241912840400,243978,4.0,"```
+const express = require('express');
+const router = express.Router();
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize('sqlite::memory:');
+
+// Define Book model
+const Book = sequelize.define('Book', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  title: {
+    type: Sequelize.STRING,
+  },
+  author: {
+    type: Sequelize.STRING,
+  },
+  publishedDate: {
+    type: Sequelize.DATE,
+  },
+});
+
+// Create table for Book model
+Book.sync();
+
+// Define routes
+router.get('/books', async (req, res) => {
+  try {
+    const books = await Book.findAll({
+      attributes: ['id', 'title', 'author', 'publishedDate'],
+    });
+    res.json(books);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/books/:id', async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+    res.json(book);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.post('/books', async (req, res) => {
+  try {
+    const book = await Book.create(req.body);
+    res.json(book);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.put('/books/:id', async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+    await book.update(req.body);
+    res.json(book);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.delete('/books/:id', async (req, res) => {
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+    await book.destroy();
+    res.json({ message: 'Book deleted successfully' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Define error-handling middleware
+router.use((err, req, res, next) => {
+  if (err instanceof Sequelize.ValidationError) {
+    return res.status(400).json({ message: 'Invalid request body' });
+  }
+  console.log(err);
+  res.status(500).send('Internal Server Error');
+});
+
+// Define 404/400 handlers
+router.use((req, res) => {
+  res.status(404).json({ message: 'Resource not found' });
+});
+
+module.exports = router;
+```"
+code_generation,cg1,starcoder2:3b,True,-1.0,0.0380952380952381,0.0380952380952381,284,37066161900,68,6250359200,51811065100,53870,2.0,"
+
+import typing as t
+from fastapi import FastAPI
+app = FastAPI()
+
+
+@app.get(""/users"")
+def getUsers():
+    return [
+        {
+            ""id"": 123456789,
+            ""name"": ""<NAME>"",
+            ""email"": ""<EMAIL>""
+        },
+        {
+            ""id"": 987654321,
+            ""name"": ""<NAME>"",
+            ""email"": ""<EMAIL>""
+        }
+    ]
+
+
+@app.get(""/users/{userId}"")
+def getUser(userId: int):
+    return [user for user in getUsers() if user[""id""] == userId][0]
+
+
+@app.post(""/users"")
+def createUser(user: t.Dict[str, str]):
+    return {
+        ""id"": 123456789 + len(getUsers()),
+        **user
+    }
+
+
+@app.put(""/users/{userId}"")
+def updateUser(userId: int, user: t.Dict[str, str]):
+    return [user for user in getUsers() if user[""id""] == userId][0]
+
+
+@app.delete(""/users/{userId}"")
+def deleteUser(userId: int):
+    return [user for user in getUsers() if user[""id""] != userId]"
+code_generation,cg2,starcoder2:3b,False,,0.7333333333333334,0.7333333333333334,75,7270445700,75,2415112000,9828224200,11877,0.0,"
+
+You are given a CRUD API specification.
+Language: java
+Spec:
+Create Spring Boot REST CRUD for entity 'Product' with fields id:long, name:string, price:BigDecimal. Use Spring Data JPA with H2 and Bean Validation.
+
+Return ONLY the code, no explanations.
+"
+code_generation,cg3,starcoder2:3b,True,-1.0,0.021164021164021163,0.021164021164021163,606,86186104000,80,2686658400,89565616900,91612,3.0,"
+
+import datetime
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Resource, Api
+
+
+app = Flask(__name__)
+api = Api(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
+db = SQLAlchemy(app)
+
+
+class Book(db.Model):
+    id = db.Column('book_id', db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    author = db.Column(db.String(50))
+    published_date = db.Column(db.Date())
+
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+
+class BookListAPI(Resource):
+    def get(self):
+        return jsonify({'books': [book.serialize() for book in Book.query.all()]})
+
+    def post(self):
+        title = request.json['title']
+        author = request.json['author']
+
+        new_book = Book(title, author)
+        db.session.add(new_book)
+        db.session.commit()
+
+        return jsonify({'books': [new_book.serialize()]})
+
+
+class BookAPI(Resource):
+    def get(self, book_id):
+        book = Book.query.filter_by(id=book_id).first()
+        if not book:
+            return {'message': 'Book not found'}, 404
+
+        return jsonify({'books': [book.serialize()]})
+
+    def put(self, book_id):
+        book = Book.query.filter_by(id=book_id).first()
+        if not book:
+            return {'message': 'Book not found'}, 404
+
+        title = request.json['title']
+        author = request.json['author']
+        published_date = datetime.datetime.strptime(request.json['published_date'], '%Y-%m-%d').date()
+
+        book.title = title
+        book.author = author
+        book.published_date = published_date
+
+        db.session.commit()
+
+        return jsonify({'books': [book.serialize()]})
+
+    def delete(self, book_id):
+        book = Book.query.filter_by(id=book_id).first()
+        if not book:
+            return {'message': 'Book not found'}, 404
+
+        db.session.delete(book)
+        db.session.commit()
+
+        return jsonify({'message': 'Book deleted'})
+
+
+api.add_resource(BookListAPI, '/books')
+api.add_resource(BookAPI, '/books/<int:book_id>')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)"
+code_generation,cg4,starcoder2:3b,False,,0.6923076923076924,0.6923076923076924,82,11091966500,82,3239459800,14496290500,16547,0.0,"
+
+You are given a CRUD API specification.
+Language: java
+Spec:
+Implement Micronaut reactive CRUD for entity 'Order' with fields id:long, total:BigDecimal, status:enum{NEW,PAID,SHIPPED}. Use R2DBC Postgres and DTO mapping.
+
+Return ONLY the code, no explanations.
+"
+code_generation,cg5,starcoder2:3b,False,-1.0,0.0,0.0,966,120658725800,77,2502350900,123896918100,125946,2.0,"
+
+import os
+from typing import List
+
+from fastapi import Depends, FastAPI, HTTPException, status
+from pydantic import BaseModel
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import secrets
+import jwt
+
+
+Base = declarative_base()
+
+class Task(BaseModel):
+    id: int
+    title: str
+    done: bool
+
+    class Config:
+        orm_mode=True
+
+class User(BaseModel):
+    username:str
+    password:str
+
+class Token(BaseModel):
+    access_token:str
+
+
+class UserInDB(User):
+    hashed_password:bytes
+
+def get_db():
+    db = os.getenv('DATABASE')
+    engine = create_engine(f'sqlite:///{db}', connect_args={'check_same_thread': False})
+
+    return engine
+
+def get_session(db):
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db)
+    return SessionLocal()
+
+
+class TaskModel(BaseModel):
+    id:int
+    title:str
+    done:bool
+
+class TaskInDB(TaskModel):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+class UserModel(BaseModel):
+    username: str
+    password: str
+
+class TokenModel(BaseModel):
+    access_token: str
+
+
+class UserInDBModel(UserModel):
+    hashed_password: bytes
+
+def create_user(db, user):
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+
+    return user
+
+def get_user(db, username):
+    return db.query(User).filter(User.username == username).first()
+
+
+def authenticate_user(db, username: str, password:str):
+    user = get_user(db, username=username)
+
+    if not user or not check_password(password.encode('utf-8'), user.hashed_password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail='Incorrect username or password',
+            headers={'WWW-Authenticate': 'Bearer'},
+        )
+
+    return user
+
+def create_access_token(*, data: dict) -> str:
+    to_encode = data.copy()
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm='HS256')
+    return encoded_jwt
+
+
+SECRET_KEY = secrets.token_hex(32)
+ALGORITHM = 'HS256'
+ACCESS_TOKEN_EXPIRE_MINUTES = 10
+
+app = FastAPI()
+
+@app.post('/users', response_model=UserInDBModel, status_code=status.HTTP_201_CREATED)
+def create_user(db: Session = Depends(get_session), user: User):
+    return create_user(db, user)
+
+
+@app.post('/login')
+async def login(db:Session = Depends(get_session), user:UserInDBModel):
+
+    user = authenticate_user(db=db, username=user.username, password=<PASSWORD>)
+
+    access_token = create_access_token(data={'sub': user.id})
+    return {'access_token': access_token}
+
+@app.get('/tasks', response_model=List[TaskModel])
+def get_tasks(db:Session = Depends(get_session)):
+
+    return db.query(Task).all()
+
+
+@app.post('/task')
+async def create_task(db: Session = Depends(get_session), task: Task):
+    db.add(task)
+    db.commit()
+    db.refresh(task)
+
+    return task
+
+@app.delete('/task/{id}')
+def delete_task(db, id):
+    task = get_task(db=db, id=id)
+    if not task:
+        raise HTTPException(status_code=404, detail='Task not found')
+
+    db.delete(task)
+    db.commit()
+
+    return {'message': 'Task deleted'}
+
+@app.get('/task/{id}')
+def get_task(db, id):
+    return db.query(Task).filter(Task.id == id).first()
+
+"
+code_generation,cg1,starcoder2:3b,True,,0.0,0.0,562,56272274200,84,9333298600,66564100400,68638,2.0,"
+
+import { Router } from 'express';
+import { User } from './User'
+const router = Router();
+router.get('/', (req, res) => {
+    const users = new Map<number, User>();
+
+    // Create
+    router.post('/', async(req,res)=>{
+        let user = req.body;
+        if(!user || !user.name){
+            return res.status(400).json({message:""Invalid request""});
+        }
+        else{
+            const id = users.size + 1;
+            user.id = id;
+            users.set(id,new User(id,user));
+            return res.status(201).json(users);
+        }
+    });
+
+    // Read
+    router.get('/:id', async (req,res)=>{
+        const id = parseInt(req.params['id']);
+        if(!id){
+            return res.status(400).json({message:""Invalid request""});
+        }
+
+        let user = users.get(id);
+        if (!user) {
+            return res.status(404).json({ message: ""User not found"" });
+        }
+        else{
+            return res.status(200).json(users);
+        }
+    })
+
+    // Update
+    router.put('/:id', async (req,res)=>{
+        const id = parseInt(req.params['id']);
+        if(!id){
+            return res.status(400).json({message:""Invalid request""});
+        }
+
+        let user = users.get(id);
+        if (!user) {
+            return res.status(404).json({ message: ""User not found"" });
+        }
+        else{
+            const updatedUser = req.body;
+            if(!updatedUser || !updatedUser.name){
+                return res.status(400).json({message:""Invalid request""});
+            }
+
+            user.name = updatedUser.name;
+            users.set(id,user);
+            return res.status(200).json(users);
+        }
+    })
+
+    // Delete
+    router.delete('/:id', async (req,res)=>{
+        const id = parseInt(req.params['id']);
+        if(!id){
+            return res.status(400).json({message:""Invalid request""});
+        }
+
+        let user = users.get(id);
+        if (!user) {
+            return res.status(404).json({ message: ""User not found"" });
+        }
+        else{
+            users.delete(id);
+            return res.status(200).json(users);
+        }
+    })
+});
+export default router;"
+code_generation,cg2,starcoder2:3b,False,,0.7647058823529412,0.7647058823529412,77,9020462700,84,2701594300,11864850800,13890,0.0,"
+
+You are given a CRUD API specification.
+Language: nodejs
+Spec:
+Create NestJS REST CRUD for entity 'Product' with fields id:number, name:string, price:number. Use TypeORM with SQLite and class-validator for DTO validation; include repository pattern and migration.
+
+Return ONLY the code, no explanations.
+"
+code_generation,cg3,starcoder2:3b,True,,0.04081632653061224,0.04081632653061224,93,24675119100,94,3447419500,28332616800,30384,,"
+
+import { Router } from 'express';
+import { BookController } from './book.controller'
+const router = Router();
+router.get('/books', BookController.getAllBooks);
+router.post('/books', BookController.createBook);
+router.put('/books/:id', BookController.updateBookById);
+router.delete('/books/:id', BookController.deleteBookById);
+export default router;
+
+"

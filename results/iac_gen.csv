@@ -1,0 +1,1487 @@
+task,id,model,syntax_valid,validator_success,rougeL_f,token_f1,eval_count,eval_duration_ms,prompt_eval_count,prompt_eval_duration_ms,total_duration_ms,wall_time_ms,infra_compliance_score,output
+iac_generation,iac1,starcoder2:3b,TRUE,TRUE,,,131,10824889100,47,1602132400,13773020100,15845,4,"
+
+```hcl
+aws_s3_bucket ""my-bucket"" {
+  bucket = ""my-bucket""
+
+  versioning {
+    status = true
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = ""AES256""
+      }
+    }
+  }
+}
+```
+
+## Generate Terraform (HCL) that satisfies this spec. Return only HCL.
+Spec:
+Provision an AWS S3 bucket with versioning and default SSE-S3 encryption enabled
+"
+iac_generation,iac2,starcoder2:3b,FALSE,TRUE,,,1024,98975213100,50,1156235900,1.00812E+11,102861,2,"
+
+```hcl
+data ""aws_iam_policy_document"" ""read_only_s3"": {
+  statement = [
+    {
+      effect  = ""Allow""
+      actions = [""s3:GetObject"", ""s3:ListBucket""]
+
+      resources = [
+        data.aws_s3_bucket.example.arn,
+        ""${data.aws_s3_bucket.example.arn}/*"",
+      ]
+    },
+  ]
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only.id
+
+  policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only.id
+
+  policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only.id
+
+  policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only.id
+
+  policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only.id
+
+  policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only.id
+
+  policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role"" ""read_only"": {
+  name = ""read-only-${var.name}""
+
+  assume_role_policy = data.aws_iam_policy_document.read_only_s3.json
+}
+```
+
+```hcl
+resource ""aws_iam_role_policy"" ""read_only"": {
+  name   = ""read-only-${var.name}""
+  role   = aws_iam_role.read_only"
+iac_generation,iac3,starcoder2:3b,FALSE,FALSE,,,210,19806602100,62,1386542200,21414196300,23467,2,"
+
+```
+terraform {
+  required_providers {
+    aws = {
+      source  = ""hashicorp/aws""
+      version = ""~> 3.45""
+    }
+  }
+
+  required_version = "">= 0.13""
+}
+
+provider ""aws"" {}
+
+variable ""vpc_cidr"" {
+  type        = string
+  description = ""The CIDR block for the VPC""
+  default     = ""10.0.0.0/16""
+}
+
+resource ""aws_vpc"" ""main"" {
+  cidr_block = var.vpc_cidr
+
+  tags = {
+    Name = ""terraform-aws-vpc""
+  }
+}
+```
+
+## Generate Terraform (HCL) that satisfies this spec. Return only HCL.
+Spec:
+Build an AWS VPC (10.0.0.0/16) with one public and two private subnets across 2 AZs
+"
+iac_generation,iac4,starcoder2:3b,TRUE,FALSE,,,112,12338674800,50,1456979400,13995219600,16061,2,"
+
+```hcl
+resource ""aws_db_instance"" ""rds"" {
+  identifier = ""my-postgres-db""
+
+  allocated_storage    = 20
+  storage_type         = ""gp2""
+  engine               = ""postgres""
+  engine_version       = ""13.4""
+  instance_class       = ""db.t3.small""
+  name                 = ""my-postgres-db""
+  username             = ""admin""
+
+  backup_retention_period = 7
+}
+```"
+iac_generation,iac5,starcoder2:3b,FALSE,FALSE,,,130,12222123000,48,813745100,13179748100,15227,2,"
+
+```hcl
+module ""aws-alb"" {
+  source = ""./modules/aws-alb""
+
+  name        = var.name
+  environment = var.environment
+  region      = var.region
+  vpc         = module.vpc.vpc_id
+  subnets     = module.vpc.public_subnets
+  lb_type     = ""application""
+}
+```
+
+Generate Terraform (HCL) that satisfies this spec. Return only HCL.
+Spec:
+Deploy an AWS Application Load Balancer fronting an Auto Scaling Group of EC2 instances
+"
+iac_generation,iac94,starcoder2:3b,FALSE,TRUE,,,87,8165362700,45,1642396400,9934380300,11992,0,"
+
+```yaml
+apiVersion: v1alpha3
+kind: Template
+metadata:
+  name: vmss-autoscale-cpu-template
+spec:
+  schemaVersion: 0.2
+  description: |-
+    Generate an Azure ARM (JSON) template for this spec. Return only valid JSON.
+
+    Spec: Configure autoscale on a VM Scale Set based on average CPU thresholds
+    "
+iac_generation,iac95,starcoder2:3b,FALSE,FALSE,,,184,17907308200,47,886008000,18974392400,21017,0,"
+
+```yaml
+name: diskEncryptionSet
+description: |
+  Generate an Azure ARM (JSON) template for this spec. Return only valid JSON.
+
+  Spec:
+    Create a Disk Encryption Set backed by a customer-managed key in Key Vault
+
+inputs:
+  - name: location
+    type: string
+    description: |
+      The Azure Region where the resource will be created.
+    required: true
+  - name: diskEncryptionSetName
+    type: string
+    description: |
+      The name of the Disk Encryption Set to create.
+    required: true
+  - name: keyVaultId
+    type: string
+    description: |
+      The ID of the Key Vault containing the customer-managed key used for encryption.
+    required: true
+
+outputs:
+  - name: template
+    type: json
+    description: |
+      A JSON representation of the Azure ARM template to deploy this spec.
+```
+"
+iac_generation,iac96,starcoder2:3b,FALSE,FALSE,,,1024,1.11323E+11,47,774929800,1.128E+11,114848,2,"
+
+```yaml
+---
+apiVersion: spec.fusor.org/v1alpha1
+kind: Spec
+metadata:
+  name: azure-managed-disk-encryption-set-vm-template
+spec:
+  template: |-
+    {
+      ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+      ""contentVersion"": ""1.0.0.0"",
+      ""parameters"": {
+        ""vmName"": {
+          ""type"": ""string""
+        },
+        ""location"": {
+          ""type"": ""string""
+        }
+      },
+      ""resources"": [
+        {
+          ""apiVersion"": ""2019-03-01"",
+          ""name"": ""[parameters('vmName')]"",
+          ""type"": ""Microsoft.Compute/virtualMachines"",
+          ""location"": ""[parameters('location')]"",
+          ""tags"": {},
+          ""properties"": {
+            ""hardwareProfile"": {
+              ""vmSize"": ""Standard_DS2_v2""
+            },
+            ""storageProfile"": {
+              ""imageReference"": {
+                ""publisher"": ""Canonical"",
+                ""offer"": ""UbuntuServer"",
+                ""sku"": ""18.04-LTS"",
+                ""version"": ""latest""
+              }
+            },
+            ""osProfile"": {
+              ""computerName"": ""[parameters('vmName')]"",
+              ""adminUsername"": ""azureuser"",
+              ""adminPassword"": <PASSWORD>]""
+            },
+            ""networkProfile"": {
+              ""networkInterfaceConfigurations"": [
+                {
+                  ""name"": ""[parameters('vmName')]"",
+                  ""properties"": {
+                    ""primary"": true,
+                    ""ipConfigurations"": [
+                      {
+                        ""name"": ""ipconfig1"",
+                        ""properties"": {
+                          ""subnet"": {
+                            ""id"": ""/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fusor-azure-managed-disk-encryption-set-vm-template-rg/providers/Microsoft.Network/virtualNetworks/fusor-azure-managed-disk-encryption-set-vm-template-vnet/subnets/default""
+                          },
+                          ""privateIPAddress"": ""[concat(parameters('vmName'), 'ip')]"",
+                          ""publicIPAddressConfiguration"": {
+                            ""name"": ""[parameters('vmName')]"",
+                            ""properties"": {
+                              ""publicIPAllocationMethod"": ""Dynamic"",
+                              ""idleTimeoutInMinutes"": 4,
+                              ""dnsSettings"": {
+                                ""domainNameLabel"": ""[parameters('vmName')]""
+                              }
+                            },
+                            ""type"": ""Microsoft.Network/publicIPAddresses""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              ""networkInterfaces"": [
+                {
+                  ""id"": ""/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fusor-azure-managed-disk-encryption-set-vm-template-rg/providers/Microsoft.Network/networkInterfaces/[parameters('vmName')]""
+                }
+              ]
+            },
+            ""diagnosticsProfile"": {
+              ""bootDiagnostics"": {
+                ""enabled"": true,
+                ""storageUri"": ""[concat('https://', parameters('vmName'), '-blob.blob.core.windows.net/')]""
+              }
+            },
+            ""resources"": [
+              {
+                ""apiVersion"": ""2019-03-01"",
+                ""name"": ""[parameters('vmName')]"",
+                ""type"": ""Microsoft.Compute/disks"",
+                ""location"": ""[parameters('location')]"",
+                ""tags"": {},
+                ""properties"": {
+                  ""creationData"": {
+                    ""createOption"": ""Empty""
+                  },
+                  ""diskSizeGB"": 128,
+                  ""encryptionSettingsCollection"": {
+                    ""enabled"": true,
+                    ""encryptionSettings"": [
+                      {
+                        ""diskEncryptionKey"": {
+                          ""secretUrl"": ""[concat('https://', parameters('vmName'), '-kek.vault.azure.net/secrets/', parameters('vmName'))]"",
+                          ""sourceVault"": {
+                            ""id"": ""/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/[parameters('vmName')]/providers/Microsoft.KeyVault/vaults/[parameters('vmName')]-kek""
+                          }
+                        },
+                        ""enabled"": true,
+                        ""keyEncryptionKey"": {
+                          ""keyUrl"": ""[concat('https://', parameters('vmName'), '-kek.vault.azure.net/keys/', parameters('vmName'))]"",
+                          ""sourceVault"": {
+                            """
+iac_generation,iac97,starcoder2:3b,TRUE,FALSE,,,365,39783875300,43,637441900,40755348300,42797,2,"
+
+```yaml
+---
+azure-arm:
+  type: template
+  name: vm-boot-diagnostics-storage-account
+  description: Deploy a VM with boot diagnostics enabled to a storage account.
+  parameters:
+    location:
+      type: string
+      default: westus2
+      allowedValues:
+        - eastus
+        - southeastasia
+        - centralus
+        - northcentralus
+        - southcentralus
+        - northeurope
+        - westeurope
+        - japaneast
+        - japanwest
+        - australiaeast
+        - australiasoutheast
+        - brazilsouth
+        - australiaeast2
+        - canadacentral
+        - canadaeast
+        - westus2
+    vmSize:
+      type: string
+      default: Standard_D1
+      allowedValues:
+        - Basic_A0
+        - Basic_A1
+        - Basic_A2
+        - Basic_A3
+        - Basic_A4
+        - Standard_A0
+        - Standard_A1
+        - Standard_A2
+        - Standard_A3
+        - Standard_A4
+        - Standard_A5
+        - Standard_A6
+        - Standard_A7
+        - Standard_A8
+        - Standard_A9
+        - Standard_A10
+        - Standard_A11
+        - Standard_D1
+        - Standard_D2
+        - Standard_D3
+        - Standard_D4
+        - Standard_D5
+        - Standard_D6
+        - Standard_D7
+        - Standard_D8
+        - Standard_D9
+        - Standard_D10
+        - Standard_D11
+    vmName:
+      type: string
+      default: vm-boot-diagnostics-storage-account
+```"
+iac_generation,iac98,starcoder2:3b,FALSE,FALSE,,,104,8828676600,44,777764600,9756118800,11806,3,"
+
+```
+{
+  ""apiVersion"": ""2017-03-30"",
+  ""type"": ""Microsoft.Compute/availabilitySets"",
+  ""name"": ""[parameters('availabilitySet').name]"",
+  ""location"": ""[resourceGroup().location]"",
+  ""properties"": {
+    ""platformUpdateDomainCount"": 5,
+    ""platformFaultDomainCount"": 2,
+    ""virtualMachines"": [
+      ""[variables('vmNames')]""
+    ]
+  }
+}
+```
+
+"
+iac_generation,iac99,starcoder2:3b,FALSE,FALSE,,,72,6151724000,52,919727000,7179182800,9223,0,"
+
+```yaml
+name: proximity-placement-group-vm-vmss
+description: |-
+  Generate an Azure ARM (JSON) template for this spec. Return only valid JSON.
+
+  Spec:
+  Create a Proximity Placement Group and place a VM and VMSS in it for low latency
+  "
+iac_generation,iac1,deepseek-coder:1.3b,FALSE,FALSE,,,653,31125505900,72,1129129000,33516699100,35565,2,"Here is a simple example of how you can provision the required infrastructure using HashiCorp Configuration Language (HCL): 
+```hcl
+provider ""aws"" {
+  region = ""us-west-2"" # replace with your preferred AWS Region. Defaults to us-east-1 if not specified in provider block or environment variables, etc...
+}
+resource ""aws_s3_bucket"" ""exampleBucket"" {
+  bucket        = ""myExampleBucketName""   //replace this value by the name you want for your S3 Bucket. e.g., my-first-terraform-state
+  acl           = ""private""               //default is private, can be public or private (depends on whether bucket contents are publicly readable)
+}
+resource ""aws_s3_bucket_versioning"" ""exampleBucketVersioning"" {  
+    bucket = aws_s3_bucket.exampleBucket.id  //replace this value by the id of your S3 Bucket you want to enable version control for (you can get it from terraform output) e.g., ${aws_s3_bucket.exampleBucket.id}
+    mode   = ""Enabled""                      //default is Enabled, other options are Disabled or Suspended 
+}  
+resource ""aws_s3_bucket_encryption"" ""enableEncryptionAtRest"" {    
+ bucket = aws_s3_bucket.exampleBucket.id    //replace this value by the id of your S3 Bucket you want to enable encryption at rest for (you can get it from terraform output) e.g., ${aws_s3_bucket.exampleBucket.id}
+  server_side_encryption_configuration {  
+    rule {    
+      apply_server_side_encryption_algorithm = ""AES256"" //default is AES256, other options are AWS:KMSKEYSALIAS or CUSTOMERMANAGEDCMK  (depends on whether you want to use a customer managed CMK)
+      kms_master_key_id = ""arn:aws:kms:us-west-2:111122223333:key/abcd1234"" //replace this value by the ARN of your KMS key (you can get it from AWS Key Management Service)
+    }  
+  }    
+}     
+```
+This script will create an S3 bucket with versioning enabled, and set default server-side encryption to AES256. Please replace `""arn:aws:kms:us-west-2:111122223333:key/abcd1234""` by your AWS KMS key ARN in the script above, and also make sure you have a valid IAM role with necessary permissions to create an SSE ket.
+"
+iac_generation,iac2,deepseek-coder:1.3b,TRUE,TRUE,,,1024,52618772600,73,423288100,53633774500,55689,0,"Here is the terraform code snippet which creates and attaches necessary policies in iam roles of ec2 instances, so that they can have full control over s3 bucket. 
+```hcl
+provider ""aws"" {
+    region = var.region # Set your AWS Region here or use default provider settings (~/.aws/config) if you're not using a specific profile in the configuration file and credentials are set up correctly on your machine, e.g., via ~/.aws/credentials 
+}
+data ""aws_caller_identity"" ""current"" {} # This data source retrieves account ID of the calling entity (i.e user or IAM role) if you're using AWS CLI and configured credentials correctly in your environment, e.g., via ~/.aws/config 
+variable ""region"" default=null
+data ""archive_file"" ""exampletarballs3bucketpolicyjson159826407xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim"" {
+  type        = ""tar.gz"" # Set the file's archive format (default: tar) and its extension, e.g., .json for JSON files or any other supported by your provider/service like json,.xml etc.. Default is 'zip'. If you want to use a different one then set it here
+  source_url  = ""https://examplebucketpolicy159826407xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim.tar.gz"" # Set the URL of your file here
+  connection  = ""default_remote_state""   # The AWS provider will use this to connect with other resources, e.g., default or custom (depends on how you've set up connections in ~/.aws/config) Default is 'none'. If not specified then the current configuration of your credentials and region settings are used
+} 
+resource ""null_resource"" ""exampleiamroleforec2instance159830467xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim_policy"" {
+  provisioner ""local-exec"" { # This local exec provider runs a command in the same process group as Terraform and is used to create or update resources. e.g., creating an IAM role with policy document, etc.. Defaults are 'none'. If not specified then no changes will be made
+  command = <<EOF  
+            aws iam create-role --role-name exampleiamroleforec2instance159830467xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim --assume-role-policy-document file://${path.module}/exampletarballs3bucketpolicyjson159826407xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim.assume_role_policy
+EOF   # Set the command to create a role with policy document, e.g., aws iam assume-role --role-name exampleiamroleforec2instance159830467xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim --assume-role-policy file://${path.module}/exampletarballs3bucketpolicyjson159826407xxlzxgzjpqwkvhfuoikmibiicrfcgdcbcigtudnmlacijaadsqytzklweeiqzzukim.role_policy
+  }   # Set the command to create a role with policy document, e.g., aws iam assume-role --role-name exampleiamroleforec2instance159830467xxlzxgzjpqwkvhfuoikmibiicr"
+iac_generation,iac3,deepseek-coder:1.3b,FALSE,TRUE,,,1024,61778176200,87,517655400,62963127800,65035,2,"Here is the terraform script for creating a vpc, both Public Subnet & Private SubNet in different Availability Zones (AZ). This will be done using AWS' Terraform provider. Please replace `your_access_key` and `your_secret_key` with your actual access key ID and secret Access Key:
+```hcl
+provider ""aws"" {
+  region     = ""us-west-2"" # Replace this to the desired AZ in AWS (e.g., us-east-1, eu-central-1 etc.)
+  access_key = ""your_access_key""  
+  secret_key  = ""your_secret_key""   
+}
+data ""aws_caller_identity"" ""current"" {} # This will give you the account id of your AWS user. You can use it to set up IAM roles and policies for S3, EC2 etc in Terraform scripts 
+variable ""vpc_cidr"" { default = ""10.0.0.0/16""}   // Replace this with desired CIDR (e.g., '172.16.0.0/16') for VPC and Subnets in AWS 
+variable ""public_subnet_cidr"" { default = ""10.0.1.0/24""} // Replace this with desired CIDR (e.g., '172.31.58.96/27') for Public Subnets in AWS 
+variable ""private_subnet_cidr"" { default = ""10.0.2.0/24""} // Replace this with desired CIDR (e.g., '172.31.58.64/29') for Private Subnets in AWS 
+resource ""aws_vpc"" ""main"" {   # This will create a VPC on your behalf and return the ID of that vpc, which you can use to identify this resource later (e.g., ${aws_vpc.main.id})   
+ cidr_block = var.vpc_cidr  // Replace with desired CIDR for main VPC in AWS  
+}
+resource ""aws_subnet"" ""public"" { # This will create a public subnets on your behalf and return the ID of that SubNet, which you can use to identify this resource later (e.g., ${aws_vpc.main}/${var.public_subnet_cidr})
+  vpc_id     = aws_vpc.main.id   # Replace with your VPC ID from above   
+  cidr_block = var.public_subnet_cidr //Replaces the CIDR for Public Subnets in AWS (e.g., '172.31.58.96/24')   # Replace with desired public subnet's CIDR
+  tags =  {
+    Name = ""public-subnet"" // Add more Tags as per requirement, e.g.: environment=prod; region=${var.region} etc...    
+ }
+}
+resource ""aws_subnet"" ""private1"" { # This will create a private subnets on your behalf and return the ID of that SubNet  (e.g., ${aws_vpc.main}/${var.public_subnet_cidr})   // Replace with desired CIDR for Private-SubNets in AWS
+ vpc_id     = aws_vpc.main.id    #Replaces the VPC ID from above  (e.g., $aws_vpc.main)     
+ cidr_block  = var.private_subnet_cidr // Replace with desired private subnets' CIDR in AWS  
+ tags =  {     Name = ""Private-SubNet""    }// Add more Tags as per requirement, e.g.: environment=prod; region=${var.region} etc... 
+}
+resource ""aws_subnet"" ""private2"" { // This will create a private subnets on your behalf and return the ID of that SubNet (e.g., ${aws_vpc.main}/${var.public_subnet_cidr})   // Replace with desired CIDR for Private-SubNets in AWS
+ vpc_id     = aws_vpc.main.id    //Replaces the VPC ID from above  (e.g., $aws_vpc.main)     
+ cidr_block  = var.private_subnet"
+iac_generation,iac4,deepseek-coder:1.3b,TRUE,FALSE,,,1024,61881797600,74,521889200,63085347700,65129,2,"Here is a simple example of how you can create the infrastructure using terraform and hcl (HashiCorp Configuration Language). This script will launch your Amazon RDS Postgres database into multi availability zone setup. The backup retention period set to be seven-days, which means that all backups are retained for 7 days after they have been created:
+```hcl
+provider ""aws"" {
+  region = ""us-west-2"" # replace with your AWS Region you want the RDS instance in (e.g., us-east-1)
+}
+data ""aws_caller_identity"" ""current"" {}
+variable ""db_name"" { default=""mydatabase""}
+variable ""instance_type"" {default = ""db.t2.micro""} # replace with your instance type (e.g., db.m4.large) 
+data ""aws_rds_instances"" ""example"" {}  
+resource ""aws_rds_cluster"" ""example"" {   
+  cluster_identifier      = var.db_name    
+  engine                  = data.aws_caller_identity[""current""].region_set[0].system // replace with your RDS instance type (e.g., db.t2.micro)   #replace this value by the one you want to use, e.g t2.small or r5.large
+  engine_version          = ""14""    # default version is latest stable release of PostgreSQL for Amazon RDS v14 (e.g., pg-9.6 on us-west-2)   // replace with your desired Postgres Version, e.g: 'pg' or any other supported postgres versions
+  master_username         = ""admin""    # default username is admin and can be changed to something else if you want (e.g., myuser1). Make sure it matches the one used in RDS security group rules for PostgreSQL connections, e.g.: 'mydb' or any other name that fits your needs
+  master_password         = ""supersecret""    # default password is a randomly generated string and can be changed to something else if you want (e.g., mypass123)   // replace with the one used in RDS security group rules for PostgreSQL connections, e.g.: 'mydb' or any other name that fits your needs
+  backup_retention_period = 7    # default is set to seven days if not specified (e.g., backups are retained until they have been created)   // replace with the number of retention period in day(s), e.g.: '3' or any other value that fits your needs
+  backup_window          = ""07:00-09:00""    # default is set to UTC timezone (e.g., backups are performed at midnight)   // replace with the desired retention period in day(s), e.g.: '1' or any other value that fits your needs
+  db_subnet_group       = aws_db_subnet_group.example.id    # reference to existing DB subnet group (e.g., my-subnets)   // replace with the name of an already created SubNet Group in AWS RDS, e.g.: 'mySubGroup'
+  skip_final_snapshot   = true     # default is set as false if not specified and it will be automatically enabled when a snapshot was taken (e.g., final snapshots are disabled)   // replace with the value you want to use or leave blank for auto-enabled, e.g.: 'true'
+} 
+resource ""aws_db_subnet_group"" ""example"" {    # reference name and tags if any in AWS RDS (e.g., mySubGroup)   // replace with the desired SubNet Group Name or leave blank for default value which is created by Terraform, e.g.: 'myDB'
+  subnet_id     = aws_subnet.example.*.id    # reference to existing VPC and AWS RDS will use this as a source of available IP addresses (e.g., mySubNet1)   // replace with the name or id for an already created Subnets in your network, e.g.: 'myVpc'
+  tags = {    
+    Name = var.db_name # default tag is set to be same as db instance identifier (e.g., mydatabase), you can change it if needed   // replace with the name of a different resource that fits your needs, e.g.: 'myDBSubnet'  or any other value
+    Environment = ""Dev""     # add more tags for better organization and easier management in AWS console (e.g., Dev)"
+iac_generation,iac5,deepseek-coder:1.3b,TRUE,FALSE,,,587,26839395500,72,391108100,27588658200,29630,2,"Here is a simple example using the `aws_alb` and `aws_autoscaling` providers in Terraform to create such infrastructure as per your requirement, but please note that you need appropriate permissions for AWS services. 
+```hcl
+provider ""aws"" {
+  region = ""us-west-2"" # replace with the desired aws location (e.g., us-east-1)
+}
+data ""aws_caller_identity"" ""current"" {}
+variable ""vpc_id"" """"   //replace this value by your VPC ID in AWS 
+variaible ""subnet_ids"" []    // replace with the list of subnets you want to use for Auto Scaling Group. e.g., [""Subnet-1a2b3c4d"",""Subetm-5f6h7i8j""]  
+variable ""security_group_id"" """"  //replace this value by your Security group ID in AWS   
+resource ""aws_autoscaling_group"" ""example"" {
+  availability_zones = [""us-west-2a"", ""us-west-2b"",""us-west-2c""]   # replace with the desired zones (e.g., us-east, eu-central) in AWS region   
+  desired_capacity = 3     //replace this value by your Auto Scaling Group Desired Capacity     
+  max_size        = 5       //replace this value as Max Size of EC2 instances  
+  min_size       =1          // replace with the minimum number of ec2 instance required in auto scaling group. e,g., if you want to start only when there are one user active then set it equal or greater than two   
+}
+resource ""aws_elb"" ""example"" {   #replace this value by your Load Balancer name  and other parameters as per requirement (e.g.: target group ids, security groups)    
+  availability_zones = [""us-west-2a"", ""us-west-2b"",""us-west-2c""]    // replace with the desired zones in AWS region  
+  name               = var.loadbalancerName      #replace this value by your Load Balance Name and other parameters as per requirement (e,g., load balancing scheme)    
+}
+```
+This is a very basic example of how you can set up an Auto Scaling Group with AWS Application LoadBalancers in Terraform using the `aws_autoscaling` provider. You would need to replace placeholders like ""us-west-2"", zones, VPC IDs and other parameters as per your requirements (e.,g.: load balancer name).
+"
+iac_generation,iac94,deepseek-coder:1.3b,FALSE,FALSE,,,1024,65925507700,72,820857000,67461868000,69503,1,"Sure, here is the required azure resource manager (arm/json) template to achieve your requirement using Azure's ARM Template language and PowerShell scripting capabilities for deployment. 
+Please replace `<your-resource-group>` with actual name of a Resource Group you want or create one if it doesn’t exist yet, then use the same in subsequent commands:  
+```json
+{
+    ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+    ""contentVersion"": ""1.0.0.0"",
+    ""parameters"": { 
+        // Parameters for your VM Scale Set and autoscaling settings go here...  
+     },
+    ""variables"": {},
+    ""resources"": [{
+         ""type"": ""Microsoft.Compute/virtualMachines"",
+          ""apiVersion"": ""2019-07-01"",  // API version for your VMs and autoscaling settings go here...  
+        }, {
+            ""type"": ""microsoft.compute/virtualmachineimages"",   
+             ""dependsOn"": [    
+                ""Microsoft.Compute/virtualMachines/yourVMName""      ],  // replace 'yourVMName' with your VM name, and depends on the previous resource...  
+              }, {
+                  ""type"":""microsoft.insights/autoscalesettings"",   
+                   ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"",    
+                 // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+               }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }, { 
+                ""type"":""microsoft.insights/autoscalesettings"",   
+                 ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+              }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"": ""[concat('myScaleSetAutoscale', parameters('location'))]"" ,     // replace 'yourVMName' with your VM name, and depends on the previous resources...  
+            }], 
+         }, {
+             ""type"":""microsoft.insights/autoscalesettings"",   
+              ""name"
+iac_generation,iac95,deepseek-coder:1.3b,FALSE,FALSE,,,598,35924115300,72,440812500,36756076300,38803,1,"Sure, here is the corresponding Arm Template (Azure Resource Manager):
+```json
+{
+    ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+    ""contentVersion"": ""1.0.0.0"",
+    ""parameters"": {
+        // Parameters for your Key Vault and Disk Encryption Set go here... 
+      },  
+     ""resources"": [{
+         ""type"": ""Microsoft.Compute/virtualMachines"",
+          ""apiVersion"": ""2019-07-01"",
+           ""name"": ""[parameters('vmName')]"",
+            ""location"": ""[resourceGroup().location]""  // Use the resource group location of your current deployment...  
+      },{   
+         ""type"": ""Microsoft.KeyVault/vaults"",    
+          ""apiVersion"":""2019-09-01"" ,      
+           ""name"": ""[parameters('keyVaultName')] "",  // Use the name of your Key Vault...  
+      },{   
+         ""type"": ""Microsoft.KeyVault/vaults"",    
+          ""apiVersion"":""2019-09-01"" ,      
+           ""name"": ""[parameters('diskEncryptionSetName')] "",  // Use the name of your Disk Encryption Set...  
+      },{   
+         ""type"": ""Microsoft.KeyVault/vaults"",    
+          ""apiVersion"":""2019-09-01"" ,      
+           ""name"": ""[parameters('keyVaultLocation')] "",  // Use the location of your Key Vault...  
+      },{   
+         ""type"": ""Microsoft.KeyVault/vaults"",    
+          ""apiVersion"":""2019-09-01"" ,      
+           ""name"": ""[parameters('keyPermissionsName')] "",  // Use the name of your Key Permission...  
+      },{   
+         ""type"": ""Microsoft.KeyVault/vaults"",    
+          ""apiVersion"":""2019-09-01"" ,      
+           ""name"": ""[parameters('keyPermissionsLocation')] "",  // Use the location of your Key Permission...  
+      } ]   
+}
+```
+Please replace `// Parameters for your ... go here`, and similar comments with actual values. Also note that this template assumes you have already created a key vault in Azure which is linked to an existing resource group where Disk Encryption Set will be deployed as well (you can use the same location of Key Vault).
+"
+iac_generation,iac96,deepseek-coder:1.3b,TRUE,FALSE,,,435,20205123500,71,473124800,20947766000,23008,1,"Here is the required azure resource manager (ARM/json templates). This will create both Storage Account, Key Vaults & Managed Disks in Azure for encryption of data. 
+```JSON
+{
+    ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+    ""contentVersion"": ""1.0.0.0"",
+    ""parameters"": { 
+        // Parameters for the template go here...  
+     },
+    ""variables"": {},
+    ""resources"": [{
+        ""type"": ""Microsoft.Compute/virtualMachines"",
+        ""apiVersion"": ""2019-07-01"",
+        ""name"": ""[parameters('vmName')]"",  // VM name parameter goes here...  
+         ...,   
+          }, {    
+            ""type"": ""Microsoft.Storage/storageAccounts"",     
+             ""apiVersion"":""2018-02-01"",      
+              ""name"": ""[concat('st', parameters('vmName'))] , // Storage account name parameter goes here...  
+               ...,  }, {    
+                    ""type"": ""Microsoft.KeyVault/vaults""     
+                     ......    } ]}],          .....        ],       "",         """"}]}'\'''\,,,', ' ', '', '' ,'', '''','-='-_+==--//0123456789:;<=>?@[]\\`{|}~
+``` 
+Please replace the ... with your actual parameters and resource definitions. Also, note that this is a simplified example for brevity purposes only - in real-world scenarios you would need to handle all possible errors cases as well (like when creating resources fails). This template also does not include any provisioning of encryption set or disk attachments because it's quite complex and depends on your specific use case.
+"
+iac_generation,iac97,deepseek-coder:1.3b,FALSE,FALSE,,,1024,69493538300,67,361819700,70610926800,72638,2,"Here is the required azure resource manager (ARM/json) template code snippet that deploys a virtual machine and enables diagnostic settings on it, which includes enabling Boot Diagnostic logs. 
+```JSON
+{
+    ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+    ""contentVersion"": ""1.0.0.0"",
+    ""parameters"": { 
+        // Parameters for the resource group, storage account and location go here...  
+     },
+    ""variables"": {},
+    ""resources"": [{
+        ""type"": ""Microsoft.Compute/virtualMachines"",
+        ""apiVersion"": ""2019-06-01"",  // API version for the resource type (VM) goes here...  
+        
+        ""name"": ""[parameters('vmName')]"",    // VM name parameter to be passed in from outside. Goes Here..    
+         
+        ""location"": ""[parameters('location')]"",      // Location of resources go here.... 
+          
+        ""hardwareProfile"": {   // Hard ware profile for the vm goes here...      
+            ""vmSize"": ""[parameters('vmSize')]""    // VM size parameter to be passed in from outside. Goes Here..    
+         },         
+            
+        ""storageProfile"":{  // Storage Profile of Vm go hear....  
+           ""imageReference"": {      // Image reference for the vm goes here...      
+                ""publisher"": ""[parameters('publisher')]"",    // Publisher parameter to be passed in from outside. Goes Here..    
+                
+               ""offer"": ""[parameters('offer')]"" ,   // Offers parameters go hear.... 
+                 
+              ""sku"": ""[parameters('sku')]""      // SKU Parameter goes here...   
+           },         
+            
+         ""osDisk"": {       // OS Disk details for the VM. Goes Here..    
+            ""name"": ""[concat(parameters('vmName'),'_OSDisk')]"",   // Concatenating vm name with '_OSdisk' to create unique disk names... 
+             
+           ""caching"": ""ReadWrite"",    // Caching parameter goes here....     
+            
+          ""createOption"" : ""FromImage""     // Create option for the OS Disk. Goes Here..  
+         }      
+        },           
+              
+        ""networkProfile"": {  // Network Profile of Vm go hear...          
+                ""networkInterface"": [{    // Array to hold network interface details....     
+                    ""name"": ""[concat(parameters('vmName'),'_NetworkInterface')]"",   // Concatenating vm name with '_NETWORKINTERFACE' for unique names. Goes Here.. 
+                    
+                   ""ipConfigurations"": [{    // Array to hold IP configuration details....     
+                        ""name"": ""[concat(parameters('vmName'),'_IP')]"",   // Concatenating vm name with '_IP'. For Unique Names...    
+                        
+                       ""subnet"": {  // SubNet object for the network interface goes here.....   
+                            ""id"": ""/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Network/virtualNetworks/<Virtual Network Name>/subnets/<Subnet Name>""   // Goes Here... 
+                         }     
+                     },{    // Another IP Configuration details....    
+                        ""name"": ""[concat(parameters('vmName'),'_SecondIP')]"",       // Concatenating vm name with '_SECOND_IP'. For Unique Names.Go here..  
+                         
+                       ""publicIpAllocationMethod"" : ""Dynamic""    // Public IP Allocations Method goes Here... 
+                     }     
+                    ]    
+                 },{// More network interface details....}      
+                ],         
+             };          
+         },           
+              
+        ""diagnosticsProfile"": {   // Diagnotics Profile for the VM. Goes here..   
+              ""bootDiagnostic"": true  // Boot diagnostic parameter goes hear...    
+         }     
+                 
+    }]      
+}
+```
+Please replace `<Subscription ID>`,` <Resource Group Name> , and  `<Virtual Network Name>  with actual values. Also make sure to pass all the parameters from outside in ARM template as well (like subscription id for example).  This is a basic implementation of your requirement but you may need more complex logic based on specific requirements like setting up custom data disks, using different"
+iac_generation,iac98,deepseek-coder:1.3b,TRUE,FALSE,,,632,40300911600,67,353875600,41125498400,43181,1,"Sure, here is a simple example of how you can create the availability set in your Azure Resource Manager (ARM) Template using ARM parameters to define resource properties such as name prefix for unique names etc. 
+Please note that this template does not include any validation or error handling logic which should be added according to specific use case requirements:
+```json
+{
+    ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+    ""contentVersion"": ""1.0.0.0"",
+    ""parameters"": {
+        ""location"": { 
+            ""type"": ""string"" ,  
+            ""defaultValue"": ""[resourceGroup().location]""    
+         },     
+          ""availabilitySetNamePrefix"":{      
+             ""type"":""string"",          
+              ""metadata"":{              
+                 ""description"":""The prefix name for the availability set."" 
+                }       
+    },  
+            ""faultDomainsCount"" : {
+                    ""defaultValue"":2,
+                     ""type"": ""int"" ,    
+                      ""metadata"":{      
+                         ""description"":""Number of fault domains in Availability Set. Default is two for a single zone.""  }     
+                  },  
+            ""updateDomainCounts"" : {   
+                    ""defaultValue"":5,       
+                     ""type"": ""int"",    
+                      ""metadata"":{      
+                         ""description"":""Number of update domains in Availability Set. Default is five for a single zone.""  }     
+                  },  
+            ""vmSizeNamePrefix"" : {   
+                    ""defaultValue"": ""[concat(parameters('availabilitySetNamePrefix'), '-VM')]"",       
+                     ""type"": ""string""},    
+             ""locationForVmSizes"":""eastus2euaportugalwestcentralbrazilsouthaustraliaeast""  }   },   
+      {      
+         ""name"": ""[concat(parameters('availabilitySetNamePrefix'), '-VM')]"",       
+          ""type"": ""Microsoft.Compute/virtualMachines"",    
+           ""apiVersion"":""2019-07-04"" , 
+            ""location"": parameters(""location""),   },    }],     
+}`         ]}]])}}}}}'
+```
+This template creates an availability set with two fault domains and five update domains. The name of the VMs is created by concatenating a prefix string, '-VM', to create unique names for each virtual machine in this setup (e.g., 'myAvailabilitySet-vm1').  Please replace `""locationForVmSizes"":""eastus2euaportugalwestcentralbrazilsouthaustraliaeast""` with the actual location of your VMs if it's not already set in Azure or you want to use a different one.
+"
+iac_generation,iac99,deepseek-coder:1.3b,FALSE,FALSE,,,857,61708731900,74,697657400,63088221600,65250,2,"Sure, here is the required Arm Template (Azure Resource Manager):
+```json
+{
+    ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+    ""contentVersion"": ""1.0.0.0"",
+    ""parameters"": { 
+        // Parameters for the resource group, location and name of VMs etc...  
+     },
+    ""resources"": [{
+            ""type"": ""Microsoft.Compute/virtualMachines"",
+            ""apiVersion"": ""2019-07-01"",
+            ""name"": ""[parameters('vmName')]"",  // replace with your VM name  
+            ""location"": ""[resourceGroup().location]"" ,// use the resource group location for all resources in this template.   
+             ... (other properties of a vm)...    
+        }, {
+           ""type"": ""Microsoft.Compute/virtualMachineScaleSets"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vmss)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachineScaleSets"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vmss)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachines"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vm)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachineScaleSets"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vmss)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachines"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vm)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachineScaleSets"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vmss)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachines"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vm)...    
+        }, {   
+           ""type"": ""Microsoft.Compute/virtualMachineScaleSets"",  // or Microsoft.Compute/proximityPlacementGroups if you want to place VMs and Vmsses on the same proximity placement group  
+            ... (other properties of a vmss)...    
+        }]   
+}
+```
+Please replace `// Parameters for resource names, locations etc..` with your actual parameters. Also add other required details in each type definition like VM and VmSS definitions as per the requirement. 
+This template will create two types of resources: Virtual Machines (VMs) & Proximity Placement Groups(Ppg). The first set is for creating a single virtual machine, while another one creates multiple instances within proximity placement groups to achieve low latency between VM and Vmsses/proxies.
+"
+iac_generation,iac1,llama3.2:1b,FALSE,FALSE,,,71,2973593300,76,876103500,6626267000,8687,3,"```hcl
+provider ""aws"" {
+  region = ""us-west-2""
+}
+
+resource ""aws_s3_bucket"" ""example"" {
+  bucket = ""my-s3-bucket""
+
+  versioning {
+    enabled = true
+  }
+
+  acl      = ""private""
+
+  sse_ciphers = [""AES256""]
+}
+```"
+iac_generation,iac2,llama3.2:1b,FALSE,FALSE,,,286,12913494800,77,344720200,13834545100,15867,2,"```hcl
+provider ""aws"" {
+  region = ""us-west-2""
+}
+
+resource ""aws_iam_role"" ""ec2_s3_reader"" {
+  name        = var.role_name
+  description = ""EC2 role for reading from S3""
+
+  assume_role_policy = jsonencode({
+    Version = ""2012-10-17""
+    Statement = [
+      {
+        Action = ""sts:AssumeRole""
+        Effect = ""Allow""
+        Principal = {
+          Service = ""ec2.amazonaws.com""
+        }
+      },
+    ]
+  })
+}
+
+resource ""aws_iam_policy"" ""ec2_s3_reader_policy"" {
+  name        = var.policy_name
+  description = ""Policy for EC2 to read from S3""
+
+  policy = jsonencode({
+    Version = ""2012-10-17""
+    Statement = [
+      {
+        Action = [
+          ""s3:GetObject"",
+          ""s3:PutObject"",
+          ""s3:DeleteObject"",
+        ]
+        Resource = var.s3_bucket_arn
+        Effect   = ""Allow""
+      },
+    ]
+  })
+}
+
+resource ""aws_iam_role_policy_attachment"" ""ec2_s3_reader_attach"" {
+  role       = aws_iam_role.ec2_s3_reader.name
+  policy_arn = aws_iam_policy.ec2_s3_reader_policy.arn
+}
+```"
+iac_generation,iac3,llama3.2:1b,FALSE,FALSE,,,342,32096408700,88,461633900,33625343100,35672,2,"```hcl
+provider ""aws"" {
+  region = ""us-west-2""
+}
+
+resource ""aws_vpc"" ""example"" {
+  cidr_block = ""10.0.0.0/16""
+
+  tags = {
+    Name = ""MyVPC""
+  }
+}
+
+resource ""aws_subnet"" ""public_a"" {
+  count = 1
+  vpc_id = aws_vpc.example.id
+  cidr_block = ""10.0.1.0/24""
+  availability_zone = ""us-west-2a""
+
+  tags = {
+    Name = ""PublicSubnetA""
+  }
+}
+
+resource ""aws_subnet"" ""private_b"" {
+  count = 1
+  vpc_id = aws_vpc.example.id
+  cidr_block = ""10.0.2.0/24""
+  availability_zone = ""us-west-2b""
+
+  tags = {
+    Name = ""PrivateSubnetB""
+  }
+}
+
+resource ""aws_subnet"" ""public_c"" {
+  count = 1
+  vpc_id = aws_vpc.example.id
+  cidr_block = ""10.0.3.0/24""
+  availability_zone = ""us-west-2c""
+
+  tags = {
+    Name = ""PublicSubnetC""
+  }
+}
+
+resource ""aws_subnet"" ""private_d"" {
+  count = 1
+  vpc_id = aws_vpc.example.id
+  cidr_block = ""10.0.4.0/24""
+  availability_zone = ""us-west-2d""
+
+  tags = {
+    Name = ""PrivateSubnetD""
+  }
+}
+```"
+iac_generation,iac4,llama3.2:1b,FALSE,FALSE,,,516,24491278300,78,320046200,25683257000,27725,1,"Here is the Terraform configuration that generates a safe, minimal Infrastructure-as-Code (IaC) solution for launching an AWS RDS PostgreSQL instance in multi-AZ mode with automated backups retained for 7 days:
+```
+provider ""aws"" {
+  region = ""us-west-2""
+}
+
+resource ""aws_rds_instance"" ""example"" {
+  name        = ""my-rds-instance""
+  engine      = ""postgres""
+  instance_class = ""db.t2.micro""
+
+  vpc_security_group_ids = [aws_security_group.example.id]
+
+  tags = {
+    Name = ""My RDS Instance""
+  }
+}
+
+resource ""aws_security_group"" ""example"" {
+  name        = ""my-rds-sg""
+  description = ""Security group for RDS instance""
+
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = ""tcp""
+    cidr_blocks = [""0.0.0.0/0""]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = ""-1""
+    cidr_blocks = [""0.0.0.0/0""]
+  }
+}
+
+resource ""aws_rds_backup_group"" ""example"" {
+  name        = ""my-rds-backup-group""
+  description = ""Backup group for RDS instance""
+
+  vpc_security_group_ids = [aws_security_group.example.id]
+
+  tags = {
+    Name = ""My Backup Group""
+  }
+
+  retention_window {
+    days = 7
+  }
+}
+
+resource ""aws_rds_instance_version"" ""example"" {
+  name        = ""my-rds-instance-version""
+  instance_id = aws_rds_instance.example.id
+
+  depends_on = [aws_rds_backup_group.example]
+}
+
+output ""instance_url"" {
+  value = aws_rds_instance.example.endpoint
+}
+```
+This Terraform configuration defines:
+
+1. An AWS RDS instance with the specified engine, instance class, and security group.
+2. A security group for the RDS instance with inbound traffic on port 5432 from any IP address.
+3. A backup group for the RDS instance with a retention window of 7 days.
+4. Two resources: `aws_rds_instance` and `aws_rds_backup_group`, which are dependencies of each other.
+
+The output variable `instance_url` returns the endpoint URL of the RDS instance, which can be used to connect to the database."
+iac_generation,iac5,llama3.2:1b,FALSE,FALSE,,,495,24126762500,76,237398300,25149380400,27208,2,"```hcl
+provider ""aws"" {
+  region = ""us-west-2""
+}
+
+resource ""aws_application_load_balancer"" ""example"" {
+  name        = ""my-alb""
+  subnets     = [aws_subnet.example.id]
+  security_groups = [aws_security_group.example.id]
+
+  tags = {
+    Environment = ""dev""
+  }
+}
+
+resource ""aws_autoscaling_group"" ""example"" {
+  name            = ""my-asg""
+  launch_configuration = aws_launch_configuration.example.name
+
+  tag {
+    key                  = ""Environment""
+    value               = ""dev""
+    propagate_at_launch = true
+  }
+
+  vpc_zone_identifier = [aws_subnet.example.id]
+}
+
+resource ""aws_autoscaling_policy"" ""example"" {
+  name                   = ""my-asp""
+  policy_type           = ""TargetValue""
+  scaling_adjustment     = -1
+  target_value           = 0.5
+  cooldown               = 10
+
+  resource_name = aws_autoscaling_group.example.id
+}
+
+resource ""aws_security_group"" ""example"" {
+  name        = ""my-sg""
+  description = ""Allow inbound traffic on port 80""
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = ""tcp""
+    cidr_blocks = [""0.0.0.0/0""]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = ""-1""
+    cidr_blocks = [""0.0.0.0/0""]
+  }
+}
+
+resource ""aws_subnet"" ""example"" {
+  count = 2
+
+  vpc_id             = aws_vpc.example.id
+  cidr_block         = ""10.0.1.0/16""
+  availability_zone = ""us-west-2a""
+
+  tags = {
+    Name        = ""${count}.subnet""
+    Environment = ""dev""
+  }
+}
+
+resource ""aws_vpc"" ""example"" {
+  cidr_block = ""10.0.0.0/16""
+}
+```
+
+This Terraform configuration creates an AWS Application Load Balancer, two Auto Scaling Groups with the specified properties, and a security group that allows inbound traffic on port 80 from any IP address. The subnet is created for each Auto Scaling Group in a different availability zone."
+iac_generation,iac94,llama3.2:1b,FALSE,FALSE,,,268,20511993600,72,3338037700,25755584600,27811,1,"Here is the Azure Resource Manager (ARM) template in JSON format that configures autoscaling on a Virtual Machine Scale Set based on average CPU thresholds:
+
+```json
+{
+  ""type"": ""ResourceGroup"",
+  ""name"": ""rg-vmssconfig""
+
+  ""location"": ""West US""
+
+  ""properties"": {
+    ""virtualMachineScaleSets"": [
+      {
+        ""name"": ""vmscaleset-1"",
+        ""sku"": {
+          ""name"": ""Standard_A0"",
+          ""tier"": ""Standard""
+        },
+        ""resourceGroupLocation"": ""West US"",
+        ""adminUsername"": ""your-admin-username"",
+        ""adminPassword"": ""your-admin-password"",
+        ""vmSize"": ""Standard_2s"",
+        ""vmImage"": ""Windows_LTS_2019_datacenter"",
+        ""location"": ""West US"",
+        ""name"": ""vmscaleset-1"",
+        ""autoScaleEnabled"": true,
+        ""maxCount"": 5,
+        ""minCount"": 0
+      }
+    ]
+  }
+}
+```
+
+Please note that you should replace `""your-admin-username""` and `""your-admin-password""` with your actual Azure admin credentials. Also, make sure to create the Resource Group (`rg-vmssconfig`) before running this template."
+iac_generation,iac95,llama3.2:1b,FALSE,FALSE,,,325,15482607800,74,247351800,16313536200,18364,1,"Here is the Azure Resource Manager (ARM) template in JSON format that creates a Disk Encryption Set backed by a customer-managed key in Key Vault:
+
+```json
+{
+  ""type"": ""ResourceGroup"",
+  ""name"": ""rg-encryption-set""
+
+  {
+    ""type"": ""Microsoft.Compute/virtualMachines"",
+    ""name"": ""vm-1"",
+    ""properties"": {
+      ""hardwareProfile"": {
+        ""vmSize"": ""Standard_DS2_v2""
+      },
+      ""storageProfile"": {
+        ""diskEncryptionSet"": {
+          ""keyVaultId"": ""<your-key-vault-id>"",
+          ""keyName"": ""<your-key-name>""
+        }
+      }
+    }
+  }
+
+  {
+    ""type"": ""Microsoft.KeyVault/vaults"",
+    ""name"": ""kv-1"",
+    ""properties"": {
+      ""location"": ""West US""
+    }
+  }
+
+  {
+    ""type"": ""DiskEncryptionSet"",
+    ""name"": ""disk-encryption-set-1"",
+    ""properties"": {
+      ""keyVaultId"": ""<your-key-vault-id>"",
+      ""keyName"": ""<your-key-name>"",
+      ""resourceGroupName"": ""rg-encryption-set""
+    }
+  }
+}
+```
+
+Please replace `<your-key-vault-id>` and `<your-key-name>` with your actual Key Vault ID and key name. Also, make sure to update the `Standard_DS2_v2` virtual machine size according to your requirements.
+
+Note: You need to have the necessary permissions to create resources in Azure, including the Key Vault and Disk Encryption Set."
+iac_generation,iac96,llama3.2:1b,TRUE,FALSE,,,644,46053804100,75,315609000,47862762500,49903,1,"Here is the Azure Resource Manager (ARM) template in JSON format that meets the specified requirements:
+
+```json
+{
+  ""type"": ""ResourceGroup"",
+  ""name"": ""exampleRG""
+
+}
+```
+
+```json
+{
+  ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+  ""contentVersion"": ""1.0.0"",
+  ""parameters"": {
+    ""resourceGroupName"": {
+      ""type"": ""string""
+    },
+    ""location"": {
+      ""type"": ""string"",
+      ""defaultValue"": ""West US""
+    }
+  },
+  ""resources"": [
+    {
+      ""type"": ""Microsoft.Compute/virtualMachines"",
+      ""name"": ""exampleVM"",
+      ""properties"": {
+        ""hardwareProfile"": {
+          ""vmSize"": ""Standard_DS2_v2""
+        },
+        ""storageProfile"": {
+          ""imageReference"": {
+            ""offer"": ""Windows',
+            ""version"": ""10',
+            ""sku': ""2019-4-1',
+            ""type': ""HVM'
+          },
+          ""diskConfiguration"": {
+            ""managedDisk"": {
+              ""storageAccountType"": ""Premium_LRS"",
+              ""createOption"": ""FromImage""
+            }
+          }
+        },
+        ""osProfile"": {
+          ""computerName"": ""(localname)"",
+          ""adminUsername"": ""your_admin_username"",
+          ""adminPassword"": ""your_admin_password""
+        },
+        ""diskEncryptionSet"": {
+          ""resourceGroupName"": ""$.resourceGroupName"",
+          ""location"": $.location,
+          ""name"": ""$(concat(' DiskEncryptionSet-',$.resourceGroupName, '-',$.location,'-encrypted', counter('DiskEncryptionSetCounter', 'long')))"",
+          ""sku"": {
+            ""name"": ""Premium_LRS"",
+            ""tier"": ""Standard""
+          },
+          ""createOption"": ""New""
+        }
+      }
+    },
+    {
+      ""type"": ""Microsoft.Compute/virtualMachines/diskEncryptionSets"",
+      ""name"": ""$(concat(' DiskEncryptionSet-',$.resourceGroupName, '-',$.location,'-encrypted', counter('DiskEncryptionSetCounter', 'long')))"",
+      ""properties"": {
+        ""resourceGroupName"": ""$.resourceGroupName"",
+        ""location"": $.location,
+        ""name"": ""$(concat(' DiskEncryptionSet-',$.resourceGroupName, '-',$.location,'-encrypted', counter('DiskEncryptionSetCounter', 'long')))"",
+        ""sku"": {
+          ""name"": ""Premium_LRS"",
+          ""tier"": ""Standard""
+        },
+        ""createOption"": ""New""
+      }
+    }
+  ]
+}
+```
+
+Please note that you need to replace the placeholders with your actual values:
+
+* `resourceGroupName`: The name of the resource group where the virtual machine will be created.
+* `location`: The location where the virtual machine will be created. For example, `West US`.
+* `your_admin_username` and `your_admin_password`: Your Azure Active Directory (Azure AD) admin username and password.
+
+Also, make sure to update the `Standard_DS2_v2` VM size according to your needs."
+iac_generation,iac97,llama3.2:1b,TRUE,FALSE,,,465,23005233800,70,261483800,24071679800,26123,2,"Here is the Azure Resource Manager (ARM) template in JSON format that deploys a virtual machine (VM) with boot diagnostics enabled to a storage account:
+
+```json
+{
+  ""name"": ""vm-with-boot-diagnostics"",
+  ""location"": ""West US"",
+  ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+  ""resources"": [
+    {
+      ""type"": ""Microsoft.Compute/virtualMachines"",
+      ""name"": ""vm"",
+      ""sku"": {
+        ""name"": ""Standard_S1"",
+        ""size"": ""s1""
+      },
+      ""properties"": {
+        ""hardwareProfile"": {
+          ""vmSize"": ""s1',
+          ""osProfile"": {
+            ""computerName"": ""vm-name"",
+            ""adminUsername"": ""admin"",
+            ""adminPassword"": ""password""
+          }
+        },
+        ""storageProfile"": {
+          ""imageReference"": {
+            ""publisher"": ""MicrosoftWindowsServer"",
+            ""offer"": ""WindowsServer"",
+            ""sku"": ""2019-15"",
+            ""version"": ""latest""
+          },
+          ""osDisk"": {
+            ""createOption"": ""OneDriveFS"",
+            ""managedBy"": ""Storage,
+            ""storageAccountName"": ""<your_storage_account_name>"",
+            ""storageUri"": {
+              ""type"": ""File"",
+              ""shareAccessLevel"": ""SharedRead""
+            }
+          }
+        },
+        ""bootDiagnostics"": {
+          ""enabled"": true
+        }
+      }
+    },
+    {
+      ""type"": ""Microsoft.Storage/storageAccounts"",
+      ""name"": ""<your_storage_account_name>"",
+      ""sku"": {
+        ""name"": ""Standard_LRS"",
+        ""tier"": ""Standard""
+      },
+      ""location"": ""<your_location>""
+    }
+  ]
+}
+```
+
+Please note that you should replace `<your_storage_account_name>` and `<your_location>` with your actual storage account name and location. Also, make sure to update the `adminUsername` and `adminPassword` in the `osProfile` section of the VM's properties.
+
+This template assumes that you have already created a storage account and a virtual machine (VM) resource group. If not, please create them before using this template."
+iac_generation,iac98,llama3.2:1b,FALSE,TRUE,,,162,7320170500,71,208256300,7899714600,9955,2,"Here is the Azure Resource Manager (ARM) template in JSON format that creates an Availability Set with two fault domains and five update domains:
+
+```json
+{
+  ""type"": ""ResourceGroup"",
+  ""name"": ""your_resource_group_name""
+
+  ""availabilitySet"": {
+    ""name"": ""your_availability_set_name"",
+    ""location"": ""your_location"",
+    ""sku"": {
+      ""name"": ""Standard_A2"",
+      ""tier"": ""Standard""
+    },
+    ""properties"": {
+      ""faultDomainCount"": 2,
+      ""updateDomainCount"": 5
+    }
+  }
+
+}
+```
+
+Please replace `your_resource_group_name`, `your_availability_set_name` and `your_location` with your actual resource group name, availability set name and location respectively."
+iac_generation,iac99,llama3.2:1b,FALSE,TRUE,,,591,43842001800,77,270705700,45507497700,47560,1,"Here is the Azure Resource Manager (ARM) template in JSON format that creates a proximity placement group with a virtual machine (VM) and virtual machine scale set (VMSS) for low latency:
+
+```json
+{
+  ""type"": ""resourceGroup"",
+  ""name"": ""rg-low-latency-proximity-placements""
+
+}
+```
+
+```json
+{
+  ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
+  ""contentVersion"": ""1.0.0"",
+  ""parameters"": {
+    ""resourceGroupName"": {
+      ""type"": ""string"",
+      ""description"": ""The name of the resource group to create in""
+    }
+  },
+  ""resources"": [
+    {
+      ""type"": ""proximityPlacementGroup"",
+      ""name"": ""pg-low-latency"",
+      ""location"": ""West US"",
+      ""resourceGroupName"": ""${parameters.resourceGroupName}"",
+      ""sku"": {
+        ""name"": ""Standard_Local"",
+        ""tier"": ""Standard""
+      },
+      ""properties"": {
+        ""location"": ""West US"",
+        ""proximityPlacementGroupType"": ""ProximityPlacementGroup""
+      }
+    },
+    {
+      ""type"": ""virtualMachine"",
+      ""name"": ""vm-low-latency"",
+      ""resourceGroupName"": ""${parameters.resourceGroupName}"",
+      ""sku"": {
+        ""name"": ""Standard_S1"",
+        ""tier"": ""Standard""
+      },
+      ""properties"": {
+        ""location"": ""West US"",
+        ""hardwareProfile"": {
+          ""vmSize"": ""S1""
+        }
+      },
+      ""resources"": [
+        {
+          ""type"": ""virtualMachineScaleSet"",
+          ""name"": ""vms-low-latency"",
+          ""resourceGroupName"": ""${parameters.resourceGroupName}"",
+          ""sku"": {
+            ""name"": ""Standard_S1',
+            ""tier"": ""Standard""
+          },
+          ""properties"": {
+            ""location"": ""West US"",
+            ""vmSize"": ""S1"",
+            ""count"": 2
+          }
+        }
+      ]
+    },
+    {
+      ""type"": ""virtualMachineScaleSet"",
+      ""name"": ""vms-low-latency"",
+      ""resourceGroupName"": ""${parameters.resourceGroupName}"",
+      ""sku"": {
+        ""name"": ""Standard_S1',
+        ""tier"": ""Standard""
+      },
+      ""properties"": {
+        ""location"": ""West US"",
+        ""vmSize"": ""S1"",
+        ""count"": 2
+      }
+    }
+  ]
+}
+```
+
+This template creates a proximity placement group named `pg-low-latency` in the specified resource group. Within this placement group, two virtual machine scale sets are created: `vms-low-latency`. Each VMSS has a count of 2 and is sized for Standard_S1. The VMs are also sized for S1."

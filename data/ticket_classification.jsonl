@@ -1,0 +1,100 @@
+{"id": "tc1", "text": "Major incident: API gateway returning 5xx in prod starting 10:12 UTC", "label": "incident"}
+{"id": "tc2", "text": "Customer-facing incident: checkout errors spiking; rollback in progress", "label": "incident"}
+{"id": "tc3", "text": "Request: new laptop dock for remote worker in Bangalore", "label": "service_request"}
+{"id": "tc4", "text": "Request: create shared mailbox for Sales Ops team", "label": "service_request"}
+{"id": "tc5", "text": "Planned firewall rule update to allow outbound 443 to payments provider", "label": "change"}
+{"id": "tc6", "text": "Schedule change: upgrade Kubernetes nodes in staging cluster on 2025-11-10", "label": "change"}
+{"id": "tc7", "text": "Problem record: recurring memory leak in auth-service after deploys", "label": "problem"}
+{"id": "tc8", "text": "Root cause investigation for intermittent SSO failures", "label": "problem"}
+{"id": "tc9", "text": "Weekly maintenance: patch Windows servers in DMZ", "label": "maintenance"}
+{"id": "tc10", "text": "Monthly Oracle DB statistics gathering window", "label": "maintenance"}
+{"id": "tc11", "text": "Access request: add alice to finance-share read group", "label": "access"}
+{"id": "tc12", "text": "Access needed to AWS prod account: readonly role", "label": "access"}
+{"id": "tc13", "text": "User forgot password; needs reset for Okta", "label": "password_reset"}
+{"id": "tc14", "text": "Reset Service Account password for Jenkins agent", "label": "password_reset"}
+{"id": "tc15", "text": "Bug: Slack bot auto-assign fails when ticket title contains emoji", "label": "bug"}
+{"id": "tc16", "text": "UI bug in ServiceNow: form field alignment broken in Safari", "label": "bug"}
+{"id": "tc17", "text": "Network: high packet loss between HQ and DC1 link", "label": "network"}
+{"id": "tc18", "text": "Switch port flapping on 10G uplink core-sw01", "label": "network"}
+{"id": "tc19", "text": "Outage: office Internet down on 12F; ISP ticket opened", "label": "outage"}
+{"id": "tc20", "text": "Datacenter power outage alarm from UPS—failover active", "label": "outage"}
+{"id": "tc21", "text": "Performance: search latency above 800ms p95 in prod", "label": "performance"}
+{"id": "tc22", "text": "Slow file access on \\\\fileserver\\\\Engineering reported by team", "label": "performance"}
+{"id": "tc23", "text": "Security: suspicious login attempts for bob from foreign IPs", "label": "security"}
+{"id": "tc24", "text": "Detected malware quarantined by Defender on host-17", "label": "security"}
+{"id": "tc25", "text": "Billing: question on unexpected Azure spend in subscription 'sandbox'", "label": "billing"}
+{"id": "tc26", "text": "GCP billing alert: BigQuery cost anomaly for dataset analytics", "label": "billing"}
+{"id": "tc27", "text": "DevOps: create GitHub Actions workflow to run nightly tests", "label": "devops"}
+{"id": "tc28", "text": "Terraform state lock stuck; assistance needed to release", "label": "devops"}
+{"id": "tc29", "text": "Backup: verify last night's Veeam job for sql-prod", "label": "backup"}
+{"id": "tc30", "text": "Enable backup for new S3 bucket 'exports'", "label": "backup"}
+{"id": "tc31", "text": "Database: create read replica for postgres orders-db", "label": "database"}
+{"id": "tc32", "text": "DB index creation request to optimize invoices table", "label": "database"}
+{"id": "tc33", "text": "Hardware: replace faulty SSD on server host-22", "label": "hardware"}
+{"id": "tc34", "text": "Laptop keyboard not responding; needs onsite support", "label": "hardware"}
+{"id": "tc35", "text": "Install Tableau Desktop for user Charu on Windows 11", "label": "software_install"}
+{"id": "tc36", "text": "Request install of Python 3.12 and pip on build agent", "label": "software_install"}
+{"id": "tc37", "text": "VPN: GlobalProtect disconnects every 5 minutes on macOS", "label": "vpn"}
+{"id": "tc38", "text": "Request split tunneling for developer tools on VPN", "label": "vpn"}
+{"id": "tc39", "text": "Email: configure alias marketing@company.com for Maya", "label": "email"}
+{"id": "tc40", "text": "Outbound emails to gmail.com bouncing with 550 spam error", "label": "email"}
+{"id": "tc41", "text": "Printer: add Canon-C5550 on 9th floor for user", "label": "printer"}
+{"id": "tc42", "text": "Printer jam on HP-LaserJet-5F; service needed", "label": "printer"}
+{"id": "tc43", "text": "Onboarding: provision laptop, email, and Slack for new hire Raj", "label": "onboarding"}
+{"id": "tc44", "text": "Onboarding access: add Sarah to ENG groups and Jira projects", "label": "onboarding"}
+{"id": "tc45", "text": "Offboarding: disable accounts for departing employee Tom", "label": "offboarding"}
+{"id": "tc46", "text": "Offboarding: transfer OneDrive data to manager before deprovision", "label": "offboarding"}
+{"id": "tc47", "text": "Policy question: allowed apps list for BYOD iOS", "label": "policy"}
+{"id": "tc48", "text": "Need guidance on data retention policy for logs", "label": "policy"}
+{"id": "tc49", "text": "Request: create knowledge article for resetting VPN", "label": "knowledge"}
+{"id": "tc50", "text": "Update KB with procedure for rotating AWS keys", "label": "knowledge"}
+{"id": "tc51", "text": "Monitoring: set up uptime check for payments API", "label": "monitoring"}
+{"id": "tc52", "text": "Add dashboard panel for Redis memory fragmentation", "label": "monitoring"}
+{"id": "tc53", "text": "Capacity: increase EBS volume /dev/sdf from 500GB to 1TB", "label": "capacity"}
+{"id": "tc54", "text": "Scale Kubernetes replicas for search from 6 to 10", "label": "capacity"}
+{"id": "tc55", "text": "Compliance: evidence collection for SOC2 change management", "label": "compliance"}
+{"id": "tc56", "text": "Run quarterly access review for finance systems", "label": "compliance"}
+{"id": "tc57", "text": "Vulnerability: patch OpenSSL CVE-2025-1234 on all Ubuntu nodes", "label": "vulnerability"}
+{"id": "tc58", "text": "High CVSS finding in Qualys for sso.corp.example", "label": "vulnerability"}
+{"id": "tc59", "text": "Patch: Windows KB5031354 failing on host-3", "label": "patch"}
+{"id": "tc60", "text": "Apply critical security patches on RHEL servers this weekend", "label": "patch"}
+{"id": "tc61", "text": "License: assign 1 Figma seat to design intern", "label": "license"}
+{"id": "tc62", "text": "Renew JetBrains All Products Pack for 5 seats", "label": "license"}
+{"id": "tc63", "text": "Deprecation: retire legacy FTP server by Dec 31", "label": "deprecation"}
+{"id": "tc64", "text": "Sunset old API v1 endpoints; notify clients", "label": "deprecation"}
+{"id": "tc65", "text": "Upgrade: move MySQL 5.7 to 8.0 in staging", "label": "upgrade"}
+{"id": "tc66", "text": "Upgrade Okta Verify minimum version policy on mobile devices", "label": "upgrade"}
+{"id": "tc67", "text": "Automation: create Slack slash command to open tickets", "label": "automation"}
+{"id": "tc68", "text": "Set up auto-tagging for EC2 with cost-center", "label": "automation"}
+{"id": "tc69", "text": "Alert: CPU > 95% on node-3 for 10m", "label": "alert"}
+{"id": "tc70", "text": "PagerDuty triggered for api-gateway 5xx spike", "label": "alert"}
+{"id": "tc71", "text": "Release: deploy version 2.3.0 of checkout service to prod", "label": "release"}
+{"id": "tc72", "text": "Hotfix release for payments to revert feature flag", "label": "release"}
+{"id": "tc73", "text": "General IT support: mouse not detected via USB-C hub", "label": "support"}
+{"id": "tc74", "text": "Support needed for projector setup in Conf-Orion-3F", "label": "support"}
+{"id": "tc75", "text": "Question: how to request temporary admin rights on Mac?", "label": "question"}
+{"id": "tc76", "text": "Inquiry: what is the retention on deleted emails?", "label": "question"}
+{"id": "tc77", "text": "Data restore: recover deleted folder from OneDrive dated Nov 1", "label": "data_restore"}
+{"id": "tc78", "text": "Restore database backup from 2025-11-05 to dev environment", "label": "data_restore"}
+{"id": "tc79", "text": "Cloud: create new AWS sandbox account for team Alpha", "label": "cloud"}
+{"id": "tc80", "text": "Request GCP project with BigQuery enabled", "label": "cloud"}
+{"id": "tc81", "text": "DNS: add A record app.corp.example -> 10.2.3.4", "label": "dns"}
+{"id": "tc82", "text": "Update CNAME for api.example.com to new ALB DNS name", "label": "dns"}
+{"id": "tc83", "text": "SSL: renew wildcard *.corp.example certificate", "label": "ssl"}
+{"id": "tc84", "text": "Install new TLS cert on nginx-prod and reload", "label": "ssl"}
+{"id": "tc85", "text": "Proxy: allowlist github.com for outbound 443", "label": "proxy"}
+{"id": "tc86", "text": "PAC file issue causing Edge not to load internal sites", "label": "proxy"}
+{"id": "tc87", "text": "Mobile: enroll Android device into Intune Company Portal", "label": "mobile"}
+{"id": "tc88", "text": "iOS Mail app not syncing corporate account", "label": "mobile"}
+{"id": "tc89", "text": "Kubernetes: increase resource limits for search pod", "label": "kubernetes"}
+{"id": "tc90", "text": "Create new namespace 'data-labs' with network policy", "label": "kubernetes"}
+{"id": "tc91", "text": "Wi-Fi: CorpNet disconnects in 12F; weak signal", "label": "wifi"}
+{"id": "tc92", "text": "GuestNet password needed for visitors on Nov 10", "label": "wifi"}
+{"id": "tc93", "text": "VM: provision Ubuntu 22.04 VM with 4 vCPU/16GB RAM", "label": "vm"}
+{"id": "tc94", "text": "Resize vCPU on vm-build-07 from 2 to 4", "label": "vm"}
+{"id": "tc95", "text": "Storage: create NFS share for analytics team 2TB", "label": "storage"}
+{"id": "tc96", "text": "S3 lifecycle rules not archiving to Glacier as expected", "label": "storage"}
+{"id": "tc97", "text": "SSO: user cannot sign in to Salesforce via Okta", "label": "sso"}
+{"id": "tc98", "text": "Add Box application to Okta and assign Marketing group", "label": "sso"}
+{"id": "tc99", "text": "MFA: enroll new phone in Okta Verify after device change", "label": "mfa"}
+{"id": "tc100", "text": "Reduce MFA prompts by enabling 'remember this device' policy", "label": "mfa"}

@@ -1,0 +1,100 @@
+{"id":"iac1","target":"terraform","infra_spec":"Provision an AWS S3 bucket with versioning and default SSE-S3 encryption enabled"}
+{"id":"iac2","target":"terraform","infra_spec":"Create an AWS IAM role for EC2 with a policy allowing read-only access to S3"}
+{"id":"iac3","target":"terraform","infra_spec":"Build an AWS VPC (10.0.0.0/16) with one public and two private subnets across 2 AZs"}
+{"id":"iac4","target":"terraform","infra_spec":"Launch an AWS RDS PostgreSQL instance in Multi-AZ with automated backups retained for 7 days"}
+{"id":"iac5","target":"terraform","infra_spec":"Deploy an AWS Application Load Balancer fronting an Auto Scaling Group of EC2 instances"}
+{"id":"iac6","target":"terraform","infra_spec":"Configure AWS CloudFront with an S3 origin and cache policy for static assets"}
+{"id":"iac7","target":"terraform","infra_spec":"Stand up an Amazon EKS cluster with a managed node group and cluster-autoscaler"}
+{"id":"iac8","target":"terraform","infra_spec":"Create an AWS Lambda function with an execution role and log group (14-day retention)"}
+{"id":"iac9","target":"terraform","infra_spec":"Set up an SNS topic with an SQS queue subscription using raw message delivery"}
+{"id":"iac10","target":"terraform","infra_spec":"Create an AWS Secrets Manager secret with a rotation schedule of 30 days"}
+{"id":"iac11","target":"terraform","infra_spec":"Provision a customer-managed AWS KMS key and alias for encrypting S3 and EBS"}
+{"id":"iac12","target":"terraform","infra_spec":"Create a CloudWatch Log Group with 90-day retention and metric filter for ERRORs"}
+{"id":"iac13","target":"terraform","infra_spec":"Add a Route53 public A record pointing to an ALB using alias targeting"}
+{"id":"iac14","target":"terraform","infra_spec":"Attach AWS WAFv2 to an ALB with managed rule groups enabled"}
+{"id":"iac15","target":"terraform","infra_spec":"Create an S3 bucket for ALB access logs with bucket policy allowing write from ALB"}
+{"id":"iac16","target":"terraform","infra_spec":"Deploy an ECS Fargate service with a private subnet and a public ALB listener"}
+{"id":"iac17","target":"terraform","infra_spec":"Provision an API Gateway REST API integrated with a Lambda function (proxy mode)"}
+{"id":"iac18","target":"terraform","infra_spec":"Create an ElastiCache Redis cluster in a private subnet with at-rest encryption"}
+{"id":"iac19","target":"terraform","infra_spec":"Create an ECR repository with a lifecycle policy to keep the last 10 images"}
+{"id":"iac20","target":"terraform","infra_spec":"Store an application config value in SSM Parameter Store as a SecureString"}
+{"id":"iac21","target":"terraform","infra_spec":"Create a GCP GCS bucket with object versioning and a 30-day lifecycle rule"}
+{"id":"iac22","target":"terraform","infra_spec":"Provision a GKE cluster with Workload Identity and a default node pool"}
+{"id":"iac23","target":"terraform","infra_spec":"Deploy a Google Cloud SQL for Postgres instance with automated backups and PITR"}
+{"id":"iac24","target":"terraform","infra_spec":"Create a Pub/Sub topic and a pull subscription with dead-letter policy"}
+{"id":"iac25","target":"terraform","infra_spec":"Deploy a Cloud Run service with min instances = 1 and ingress internal-and-cloud-load-balancing"}
+{"id":"iac26","target":"terraform","infra_spec":"Create a GCP VPC network with two subnets and private Google access enabled"}
+{"id":"iac27","target":"terraform","infra_spec":"Create a GCP service account and bind roles/logging.logWriter at project scope"}
+{"id":"iac28","target":"terraform","infra_spec":"Provision a GCP KMS key ring and a crypto key with automatic rotation every 90 days"}
+{"id":"iac29","target":"terraform","infra_spec":"Create a Cloud Monitoring alert policy for VM CPU > 80% for 5 minutes"}
+{"id":"iac30","target":"terraform","infra_spec":"Configure a global HTTPS load balancer with managed certificate and backend service"}
+{"id":"iac31","target":"terraform","infra_spec":"Create an Azure storage account (Standard_LRS) with a private blob container"}
+{"id":"iac32","target":"terraform","infra_spec":"Provision an Azure AKS cluster with RBAC enabled and a system node pool"}
+{"id":"iac33","target":"terraform","infra_spec":"Deploy an Azure App Service Plan (Linux) and a Node.js Web App with daily backups"}
+{"id":"iac34","target":"terraform","infra_spec":"Create an Azure SQL Server and database with geo-redundant backup policy"}
+{"id":"iac35","target":"terraform","infra_spec":"Set up an Azure Key Vault with purge protection and a secret seeded from a variable"}
+{"id":"iac36","target":"terraform","infra_spec":"Build an Azure Virtual Network with address space 10.2.0.0/16 and two subnets"}
+{"id":"iac37","target":"terraform","infra_spec":"Deploy an Azure Application Gateway with WAF in Prevention mode"}
+{"id":"iac38","target":"terraform","infra_spec":"Provision Azure Cache for Redis (Standard C1) with TLS-only access"}
+{"id":"iac39","target":"terraform","infra_spec":"Create a Log Analytics Workspace with 30-day retention and link to an AKS cluster"}
+{"id":"iac40","target":"terraform","infra_spec":"Assign a built-in Azure Policy to enforce HTTPS-only storage accounts at the subscription scope"}
+{"id":"iac41","target":"terraform","infra_spec":"Create Azure Front Door (Standard) with an origin pointing to an App Service and enable HTTPS"}
+{"id":"iac42","target":"terraform","infra_spec":"Provision an Azure Service Bus namespace with a queue and lock duration of 60 seconds"}
+{"id":"iac43","target":"terraform","infra_spec":"Create an Azure Event Hubs namespace with a hub and capture to a storage account"}
+{"id":"iac44","target":"terraform","infra_spec":"Deploy an Azure Container Registry (Premium) with soft delete enabled"}
+{"id":"iac45","target":"terraform","infra_spec":"Create a VM Scale Set with Ubuntu images, autoscale between 1 and 3 instances"}
+{"id":"iac46","target":"terraform","infra_spec":"Provision Azure Cosmos DB (SQL API) with autoscale throughput and two regions"}
+{"id":"iac47","target":"terraform","infra_spec":"Create a Recovery Services Vault and a backup policy for daily VM backups"}
+{"id":"iac48","target":"terraform","infra_spec":"Set up an Azure DNS public zone and an A record pointing to a static public IP"}
+{"id":"iac49","target":"terraform","infra_spec":"Deploy Azure Firewall with a DNAT rule and send logs to Log Analytics"}
+{"id":"iac50","target":"terraform","infra_spec":"Create an Azure Monitor metric alert for App Service CPU > 80% for 10 minutes"}
+{"id":"iac51","target":"azure-arm","infra_spec":"Create a resource group in West Europe named rg-app-west-eu for app workloads"}
+{"id":"iac52","target":"azure-arm","infra_spec":"Deploy a Storage Account (Standard_LRS) with a private blob container and soft delete enabled"}
+{"id":"iac53","target":"azure-arm","infra_spec":"Provision a Virtual Network (10.10.0.0/16) with web and data subnets"}
+{"id":"iac54","target":"azure-arm","infra_spec":"Create a Network Security Group with an inbound rule allowing HTTPS from Internet"}
+{"id":"iac55","target":"azure-arm","infra_spec":"Allocate a static Standard public IP address for a load balancer"}
+{"id":"iac56","target":"azure-arm","infra_spec":"Deploy a Basic Load Balancer with a backend pool and health probe on port 80"}
+{"id":"iac57","target":"azure-arm","infra_spec":"Create a Linux VM with a system-assigned managed identity and OS disk encryption enabled"}
+{"id":"iac58","target":"azure-arm","infra_spec":"Provision an Azure Key Vault with RBAC authorization and a seeded secret named app-config"}
+{"id":"iac59","target":"azure-arm","infra_spec":"Deploy an Azure SQL server and database, add firewall rule to allow Azure services"}
+{"id":"iac60","target":"azure-arm","infra_spec":"Create an App Service Plan (Linux) and a Web App using Node 18 runtime with app settings"}
+{"id":"iac61","target":"azure-arm","infra_spec":"Deploy an Application Insights instance and link it to an existing Web App"}
+{"id":"iac62","target":"azure-arm","infra_spec":"Create an AKS cluster with RBAC enabled and a system node pool with autoscaling"}
+{"id":"iac63","target":"azure-arm","infra_spec":"Provision an Azure Container Registry with admin user disabled and retention policy 7 days"}
+{"id":"iac64","target":"azure-arm","infra_spec":"Deploy an Application Gateway with WAF policy in Prevention mode and listener on 443"}
+{"id":"iac65","target":"azure-arm","infra_spec":"Create an Azure Front Door Standard profile with a custom domain and managed HTTPS"}
+{"id":"iac66","target":"azure-arm","infra_spec":"Provision a Traffic Manager profile (Priority routing) with two endpoints in different regions"}
+{"id":"iac67","target":"azure-arm","infra_spec":"Create a Private DNS zone for privatelink.blob.core.windows.net and link to a VNet"}
+{"id":"iac68","target":"azure-arm","infra_spec":"Add a Private Endpoint for a Storage Account to a subnet in the application VNet"}
+{"id":"iac69","target":"azure-arm","infra_spec":"Deploy a Service Bus namespace with a queue and dead-lettering enabled"}
+{"id":"iac70","target":"azure-arm","infra_spec":"Create an Event Hubs namespace with a hub configured for capture to a storage account"}
+{"id":"iac71","target":"azure-arm","infra_spec":"Deploy a Function App (Consumption) with a system-assigned identity and App Insights"}
+{"id":"iac72","target":"azure-arm","infra_spec":"Create a Logic App Standard with an HTTP trigger and a managed identity"}
+{"id":"iac73","target":"azure-arm","infra_spec":"Provision a Cosmos DB account (SQL API) with autoscale and multi-region writes"}
+{"id":"iac74","target":"azure-arm","infra_spec":"Create Azure Cache for Redis (Standard) with virtual network injection"}
+{"id":"iac75","target":"azure-arm","infra_spec":"Deploy a Recovery Services Vault and define a daily backup policy for VMs"}
+{"id":"iac76","target":"azure-arm","infra_spec":"Enable backup on an existing VM using the defined Recovery Services Vault policy"}
+{"id":"iac77","target":"azure-arm","infra_spec":"Create a DDoS Protection Standard plan and associate it with a VNet"}
+{"id":"iac78","target":"azure-arm","infra_spec":"Deploy Azure Bastion in a dedicated subnet to enable secure VM access"}
+{"id":"iac79","target":"azure-arm","infra_spec":"Create a NAT Gateway and associate it with a subnet for outbound SNAT"}
+{"id":"iac80","target":"azure-arm","infra_spec":"Provision a Route Table with a default route to a virtual appliance and associate to a subnet"}
+{"id":"iac81","target":"azure-arm","infra_spec":"Assign the built-in policy to require HTTPS-only on storage accounts at resource group scope"}
+{"id":"iac82","target":"azure-arm","infra_spec":"Enable diagnostic settings on a Storage Account to send logs to Log Analytics"}
+{"id":"iac83","target":"azure-arm","infra_spec":"Create a Log Analytics workspace with 30-day retention and link to VM insights"}
+{"id":"iac84","target":"azure-arm","infra_spec":"Create a metric alert for VM CPU percentage > 80% for 10 minutes with email action group"}
+{"id":"iac85","target":"azure-arm","infra_spec":"Provision an Automation Account with a runbook and schedule to stop VMs nightly"}
+{"id":"iac86","target":"azure-arm","infra_spec":"Deploy an Azure Data Factory with managed virtual network enabled"}
+{"id":"iac87","target":"azure-arm","infra_spec":"Create an Azure Synapse workspace with a default SQL pool and managed private endpoints"}
+{"id":"iac88","target":"azure-arm","infra_spec":"Provision an Azure Purview (Microsoft Purview) account in a dedicated resource group"}
+{"id":"iac89","target":"azure-arm","infra_spec":"Deploy an Azure Databricks workspace with VNet injection and private subnets"}
+{"id":"iac90","target":"azure-arm","infra_spec":"Create an API Management service (Consumption) with a backend API and a product"}
+{"id":"iac91","target":"azure-arm","infra_spec":"Set up an Azure CDN Standard profile and endpoint with a custom domain and HTTPS"}
+{"id":"iac92","target":"azure-arm","infra_spec":"Create a Storage Account with hierarchical namespace (Data Lake Gen2) and a filesystem"}
+{"id":"iac93","target":"azure-arm","infra_spec":"Add an AKS user node pool with autoscaling between 1 and 5 nodes"}
+{"id":"iac94","target":"azure-arm","infra_spec":"Configure autoscale on a VM Scale Set based on average CPU thresholds"}
+{"id":"iac95","target":"azure-arm","infra_spec":"Create a Disk Encryption Set backed by a customer-managed key in Key Vault"}
+{"id":"iac96","target":"azure-arm","infra_spec":"Provision a managed disk encrypted with a Disk Encryption Set and attach to a VM"}
+{"id":"iac97","target":"azure-arm","infra_spec":"Deploy a VM with boot diagnostics enabled to a storage account"}
+{"id":"iac98","target":"azure-arm","infra_spec":"Create an Availability Set with two fault domains and five update domains"}
+{"id":"iac99","target":"azure-arm","infra_spec":"Create a Proximity Placement Group and place a VM and VMSS in it for low latency"}
+{"id":"iac100","target":"azure-arm","infra_spec":"Deploy an App Service with a system-assigned managed identity and assign Key Vault access"}

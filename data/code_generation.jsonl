@@ -1,0 +1,8 @@
+{"id": "cg1", "language": "python", "spec": "Generate FastAPI CRUD for entity 'User' with fields id:int, name:str, email:str. Use in-memory store."}
+{"id": "cg2", "language": "java", "spec": "Create Spring Boot REST CRUD for entity 'Product' with fields id:long, name:string, price:BigDecimal. Use Spring Data JPA with H2 and Bean Validation."}
+{"id": "cg3", "language": "python", "spec": "Build Flask API with SQLAlchemy for entity 'Book' (id:int, title:str, author:str, published_date:date). Use SQLite, Blueprints, and error handlers."}
+{"id": "cg4", "language": "java", "spec": "Implement Micronaut reactive CRUD for entity 'Order' with fields id:long, total:BigDecimal, status:enum{NEW,PAID,SHIPPED}. Use R2DBC Postgres and DTO mapping."}
+{"id": "cg5", "language": "python", "spec": "Create FastAPI CRUD with JWT auth for entity 'Task' (id:int, title:str, done:bool). Persist to SQLite via SQLAlchemy; include pytest tests."}
+{"id": "cg1", "language": "nodejs", "spec": "Generate Express.js CRUD for entity 'User' with fields id:number, name:string, email:string. Use an in-memory store (Map) and REST routes; include basic validation and JSON responses."}
+{"id": "cg2", "language": "nodejs", "spec": "Create NestJS REST CRUD for entity 'Product' with fields id:number, name:string, price:number. Use TypeORM with SQLite and class-validator for DTO validation; include repository pattern and migration."}
+{"id": "cg3", "language": "nodejs", "spec": "Build Express.js API using Sequelize for entity 'Book' (id:number, title:string, author:string, publishedDate:date). Use SQLite, Router modules, centralized error-handling middleware, and 404/400 handlers."}

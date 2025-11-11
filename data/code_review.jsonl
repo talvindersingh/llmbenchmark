@@ -1,0 +1,10 @@
+{"id": "cr1", "language": "python", "snippet": "query = 'SELECT * FROM users WHERE name=' + user + ' AND pwd=' + pwd; db.execute(query)", "gold_issues": ["SQL injection", "Credential handling"]}
+{"id": "cr2", "language": "python", "snippet": "os.system('ping -c 1 ' + request.args.get('host'))", "gold_issues": ["Command injection", "Improper input validation"]}
+{"id": "cr3", "language": "python", "snippet": "open('/var/www/uploads/' + request.args.get('file'), 'rb')", "gold_issues": ["Path traversal"]}
+{"id": "cr4", "language": "python", "snippet": "db.connect(user='admin', password='admin123', host='localhost')", "gold_issues": ["Hardcoded credentials"]}
+{"id": "cr5", "language": "python", "snippet": "hashlib.md5(password.encode()).hexdigest()", "gold_issues": ["Weak cryptography", "Credential handling"]}
+{"id": "cr6", "language": "python", "snippet": "token = str(random.randint(0, 999999))", "gold_issues": ["Insecure randomness"]}
+{"id": "cr7", "language": "python", "snippet": "user = pickle.loads(request.data)", "gold_issues": ["Insecure deserialization"]}
+{"id": "cr8", "language": "python", "snippet": "return '<p>' + request.args.get('name') + '</p>'", "gold_issues": ["XSS"]}
+{"id": "cr9", "language": "python", "snippet": "if request.args.get('confirm') == 'yes': delete_user(request.args.get('id'))", "gold_issues": ["CSRF", "Missing authorization"]}
+{"id": "cr10", "language": "python", "snippet": "requests.get(request.args.get('url'))", "gold_issues": ["SSRF"]}

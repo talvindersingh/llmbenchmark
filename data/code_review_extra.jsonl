@@ -1,0 +1,90 @@
+{"id": "cr11", "language": "python", "snippet": "return redirect(request.args.get('next'))", "gold_issues": ["Open redirect"]}
+{"id": "cr12", "language": "python", "snippet": "return jsonify({'admin_data': get_all_users()})", "gold_issues": ["Missing authentication", "Sensitive data exposure"]}
+{"id": "cr13", "language": "python", "snippet": "if request.args.get('make_admin') == '1': user.role = 'admin'", "gold_issues": ["Missing authorization", "Business logic flaw"]}
+{"id": "cr14", "language": "python", "snippet": "os.chmod(upload_path, 0o777)", "gold_issues": ["Insecure file permissions"]}
+{"id": "cr15", "language": "python", "snippet": "if not os.path.exists(path): open(path, 'w').write('x')", "gold_issues": ["Race condition"]}
+{"id": "cr16", "language": "python", "snippet": "re.match('(a+)+$', request.args.get('q'))", "gold_issues": ["Regex DoS", "Denial of service"]}
+{"id": "cr17", "language": "python", "snippet": "eval(request.args.get('code'))", "gold_issues": ["Use of eval", "Command injection"]}
+{"id": "cr18", "language": "python", "snippet": "requests.get(request.args.get('url'), verify=False)", "gold_issues": ["TLS verification disabled", "SSRF"]}
+{"id": "cr19", "language": "python", "snippet": "resp = make_response('ok'); resp.set_cookie('sid', session_id); return resp", "gold_issues": ["Insecure cookies", "Insecure session management"]}
+{"id": "cr20", "language": "python", "snippet": "resp = make_response(data); resp.headers['Access-Control-Allow-Origin']='*'; resp.headers['Access-Control-Allow-Credentials']='true'; return resp", "gold_issues": ["Insecure CORS", "Information disclosure"]}
+{"id": "cr21", "language": "python", "snippet": "app.run(debug=True)", "gold_issues": ["Debug mode enabled", "Information disclosure"]}
+{"id": "cr22", "language": "python", "snippet": "tmp = tempfile.mktemp(); open(tmp, 'w').write(data)", "gold_issues": ["Insecure temporary file", "Race condition"]}
+{"id": "cr23", "language": "python", "snippet": "from lxml import etree; etree.fromstring(request.data)", "gold_issues": ["XXE"]}
+{"id": "cr24", "language": "python", "snippet": "jwt.encode({'id': uid}, 'secret', algorithm='HS256')", "gold_issues": ["JWT misconfiguration", "Hardcoded secrets"]}
+{"id": "cr25", "language": "python", "snippet": "if len(pwd) >= 4: create_user(u, pwd)", "gold_issues": ["Weak password policy"]}
+{"id": "cr26", "language": "python", "snippet": "if auth(u, p): return 'ok'", "gold_issues": ["Brute-force protection missing", "Credential handling"]}
+{"id": "cr27", "language": "python", "snippet": "return str(traceback.format_exc())", "gold_issues": ["Information disclosure", "Improper error handling"]}
+{"id": "cr28", "language": "python", "snippet": "logger.warning('Login failed for %s with password %s', user, pwd)", "gold_issues": ["Sensitive data exposure", "Logging of secrets"]}
+{"id": "cr29", "language": "python", "snippet": "return render_template_string(request.args.get('tpl'))", "gold_issues": ["SSTI", "Template injection"]}
+{"id": "cr30", "language": "python", "snippet": "send_file('/var/www/' + request.args.get('p'))", "gold_issues": ["Path traversal"]}
+{"id": "cr31", "language": "python", "snippet": "age = int(request.args.get('age')); do_something(age)", "gold_issues": ["Improper input validation"]}
+{"id": "cr32", "language": "python", "snippet": "session['admin'] = request.args.get('admin') == '1'", "gold_issues": ["Insecure session management", "Missing authorization"]}
+{"id": "cr33", "language": "python", "snippet": "return jsonify({'key': os.environ.get('AWS_SECRET_ACCESS_KEY')})", "gold_issues": ["Sensitive data exposure"]}
+{"id": "cr34", "language": "python", "snippet": "ssl.wrap_socket(sock, cert_reqs=ssl.CERT_NONE)", "gold_issues": ["TLS verification disabled", "Use of deprecated API"]}
+{"id": "cr35", "language": "python", "snippet": "cursor.execute('DELETE FROM users WHERE id=' + request.args.get('id'))", "gold_issues": ["SQL injection"]}
+{"id": "cr36", "language": "python", "snippet": "db.users.find({'name': request.args.get('name')})", "gold_issues": ["NoSQL injection"]}
+{"id": "cr37", "language": "python", "snippet": "subprocess.check_output('tar -czf out.tar ' + request.args.get('dir'), shell=True)", "gold_issues": ["Command injection"]}
+{"id": "cr38", "language": "python", "snippet": "n = int(request.args.get('n')); while n: pass", "gold_issues": ["Denial of service"]}
+{"id": "cr39", "language": "python", "snippet": "secret = str(random.random())", "gold_issues": ["Insecure randomness"]}
+{"id": "cr40", "language": "python", "snippet": "return redirect(request.args['url'])", "gold_issues": ["Open redirect"]}
+{"id": "cr41", "language": "python", "snippet": "try: do_something() ; except Exception: pass", "gold_issues": ["Improper error handling"]}
+{"id": "cr42", "language": "python", "snippet": "yaml.load(request.data)", "gold_issues": ["Insecure deserialization"]}
+{"id": "cr43", "language": "python", "snippet": "return '\\n'.join(os.listdir('.'))", "gold_issues": ["Information disclosure"]}
+{"id": "cr44", "language": "python", "snippet": "order.total = float(request.args.get('total'))", "gold_issues": ["Business logic flaw", "Improper input validation"]}
+{"id": "cr45", "language": "python", "snippet": "url = 'https://api.example.com?user=' + u + '&pass=' + p; requests.get(url)", "gold_issues": ["Credential handling", "Sensitive data exposure"]}
+{"id": "cr46", "language": "python", "snippet": "API_KEY = 'sk-live-123456'", "gold_issues": ["Hardcoded secrets"]}
+{"id": "cr47", "language": "python", "snippet": "if request.method == 'GET': change_email(request.args['new'])", "gold_issues": ["CSRF"]}
+{"id": "cr48", "language": "python", "snippet": "cursor.execute('SELECT * FROM orders WHERE id=%s' % request.args['id'])", "gold_issues": ["SQL injection"]}
+{"id": "cr49", "language": "python", "snippet": "urllib.request.urlopen(request.args['u'])", "gold_issues": ["SSRF"]}
+{"id": "cr50", "language": "python", "snippet": "os.popen('sh -c ' + request.args.get('cmd')).read()", "gold_issues": ["Command injection"]}
+{"id": "cr51", "language": "nodejs", "snippet": "db.query('SELECT * FROM users WHERE name=' + req.query.u)", "gold_issues": ["SQL injection"]}
+{"id": "cr52", "language": "nodejs", "snippet": "require('child_process').exec('ping -c 1 ' + req.query.host)", "gold_issues": ["Command injection"]}
+{"id": "cr53", "language": "nodejs", "snippet": "fs.readFile('/var/www/files/' + req.query.f, cb)", "gold_issues": ["Path traversal"]}
+{"id": "cr54", "language": "nodejs", "snippet": "mongodb.connect('mongodb://admin:admin@localhost:27017/app')", "gold_issues": ["Hardcoded credentials"]}
+{"id": "cr55", "language": "nodejs", "snippet": "require('crypto').createHash('md5').update(req.body.pwd).digest('hex')", "gold_issues": ["Weak cryptography", "Credential handling"]}
+{"id": "cr56", "language": "nodejs", "snippet": "const token = Math.random().toString(36).slice(2)", "gold_issues": ["Insecure randomness"]}
+{"id": "cr57", "language": "nodejs", "snippet": "eval(req.query.code)", "gold_issues": ["Use of eval", "Command injection"]}
+{"id": "cr58", "language": "nodejs", "snippet": "res.send('<h1>' + req.query.name + '</h1>')", "gold_issues": ["XSS"]}
+{"id": "cr59", "language": "nodejs", "snippet": "app.get('/transfer', (req,res)=> doTransfer(req.query.to, req.query.amt).then(()=>res.send('ok')))", "gold_issues": ["CSRF"]}
+{"id": "cr60", "language": "nodejs", "snippet": "require('http').get(req.query.url, r => r.pipe(res))", "gold_issues": ["SSRF"]}
+{"id": "cr61", "language": "nodejs", "snippet": "res.redirect(req.query.next)", "gold_issues": ["Open redirect"]}
+{"id": "cr62", "language": "nodejs", "snippet": "app.get('/admin', (req,res)=> res.json(db.getAll()))", "gold_issues": ["Missing authentication", "Sensitive data exposure"]}
+{"id": "cr63", "language": "nodejs", "snippet": "app.post('/make-admin', (req,res)=> Users.update({_id:req.body.id},{role:'admin'}).then(()=>res.send('ok')))", "gold_issues": ["Missing authorization", "Business logic flaw"]}
+{"id": "cr64", "language": "nodejs", "snippet": "fs.chmod(req.body.path, 0o777, ()=>{})", "gold_issues": ["Insecure file permissions"]}
+{"id": "cr65", "language": "nodejs", "snippet": "if(!fs.existsSync(p)){ fs.writeFileSync(p, 'x') }", "gold_issues": ["Race condition"]}
+{"id": "cr66", "language": "nodejs", "snippet": "new RegExp('(a+)+$').test(req.query.q)", "gold_issues": ["Regex DoS", "Denial of service"]}
+{"id": "cr67", "language": "nodejs", "snippet": "axios.get(req.query.url, {httpsAgent: new (require('https').Agent)({rejectUnauthorized:false})})", "gold_issues": ["TLS verification disabled", "SSRF"]}
+{"id": "cr68", "language": "nodejs", "snippet": "res.cookie('sid', token)", "gold_issues": ["Insecure cookies", "Insecure session management"]}
+{"id": "cr69", "language": "nodejs", "snippet": "res.set('Access-Control-Allow-Origin','*'); res.set('Access-Control-Allow-Credentials','true')", "gold_issues": ["Insecure CORS"]}
+{"id": "cr70", "language": "nodejs", "snippet": "app.use((err,req,res,next)=> res.send(err.stack))", "gold_issues": ["Information disclosure"]}
+{"id": "cr71", "language": "nodejs", "snippet": "fs.writeFile('/tmp/' + req.body.name, req.body.data, ()=>{})", "gold_issues": ["Insecure temporary file", "Path traversal"]}
+{"id": "cr72", "language": "nodejs", "snippet": "require('xml2js').parseString(req.body.xml, ()=>{})", "gold_issues": ["XXE"]}
+{"id": "cr73", "language": "nodejs", "snippet": "require('jsonwebtoken').sign({id: user.id}, 'secret')", "gold_issues": ["JWT misconfiguration", "Hardcoded secrets"]}
+{"id": "cr74", "language": "nodejs", "snippet": "if(req.body.pwd && req.body.pwd.length>=4){ createUser(req.body) }", "gold_issues": ["Weak password policy"]}
+{"id": "cr75", "language": "nodejs", "snippet": "app.post('/login', (req,res)=> res.send(auth(req.body.u, req.body.p) ? 'ok' : 'no'))", "gold_issues": ["Brute-force protection missing"]}
+{"id": "cr76", "language": "nodejs", "snippet": "console.log('AWS_KEY=' + process.env.AWS_SECRET_ACCESS_KEY)", "gold_issues": ["Sensitive data exposure", "Logging of secrets"]}
+{"id": "cr77", "language": "nodejs", "snippet": "Users.find({name: req.query.name})", "gold_issues": ["NoSQL injection"]}
+{"id": "cr78", "language": "nodejs", "snippet": "res.sendFile(req.query.path)", "gold_issues": ["Path traversal"]}
+{"id": "cr79", "language": "nodejs", "snippet": "require('child_process').spawn('sh',['-c', req.query.cmd])", "gold_issues": ["Command injection"]}
+{"id": "cr80", "language": "nodejs", "snippet": "require('lodash').merge({}, req.body)", "gold_issues": ["Prototype pollution"]}
+{"id": "cr81", "language": "nodejs", "snippet": "res.location(req.query.url); res.status(302).end()", "gold_issues": ["Open redirect"]}
+{"id": "cr82", "language": "nodejs", "snippet": "let price = req.query.price; order.total = price", "gold_issues": ["Improper input validation", "Business logic flaw"]}
+{"id": "cr83", "language": "nodejs", "snippet": "app.use('/files', require('serve-index')('.'))", "gold_issues": ["Information disclosure"]}
+{"id": "cr84", "language": "nodejs", "snippet": "require('vm').runInNewContext(req.query.code)", "gold_issues": ["Use of eval", "Insecure deserialization"]}
+{"id": "cr85", "language": "nodejs", "snippet": "req.session.id = Date.now().toString()", "gold_issues": ["Insecure session management", "Insecure randomness"]}
+{"id": "cr86", "language": "nodejs", "snippet": "res.redirect('/login?u=' + req.body.u + '&p=' + req.body.p)", "gold_issues": ["Credential handling", "Sensitive data exposure"]}
+{"id": "cr87", "language": "nodejs", "snippet": "try{ doThing() }catch(e){ res.send(e) }", "gold_issues": ["Improper error handling", "Information disclosure"]}
+{"id": "cr88", "language": "nodejs", "snippet": "new Buffer(req.query.data, 'base64')", "gold_issues": ["Use of deprecated API"]}
+{"id": "cr89", "language": "nodejs", "snippet": "db.posts.insert({body: req.body.html}); res.send(req.body.html)", "gold_issues": ["XSS", "Sensitive data exposure"]}
+{"id": "cr90", "language": "nodejs", "snippet": "app.get('/delete', (req,res)=> Item.remove({_id:req.query.id}).then(()=>res.send('ok')))", "gold_issues": ["CSRF"]}
+{"id": "cr91", "language": "nodejs", "snippet": "res.send(require('fs').readFileSync('.env','utf8'))", "gold_issues": ["Sensitive data exposure"]}
+{"id": "cr92", "language": "nodejs", "snippet": "db.query('UPDATE users SET role=' + req.query.r + ' WHERE id=' + req.query.id)", "gold_issues": ["SQL injection", "Missing authorization"]}
+{"id": "cr93", "language": "nodejs", "snippet": "Users.find({$where: req.query.expr})", "gold_issues": ["NoSQL injection", "Use of eval"]}
+{"id": "cr94", "language": "nodejs", "snippet": "require('child_process').exec('convert ' + req.query.in + ' out.png')", "gold_issues": ["Command injection"]}
+{"id": "cr95", "language": "nodejs", "snippet": "require('jsonwebtoken').sign({id:u.id}, 'secret', {})", "gold_issues": ["JWT misconfiguration"]}
+{"id": "cr96", "language": "nodejs", "snippet": "app.use(require('cors')({origin: '*', credentials: true}))", "gold_issues": ["Insecure CORS"]}
+{"id": "cr97", "language": "nodejs", "snippet": "console.log('signup', req.body)", "gold_issues": ["Sensitive data exposure"]}
+{"id": "cr98", "language": "nodejs", "snippet": "app.post('/otp', (req,res)=> { sendOtp(req.body.phone); res.send('ok') })", "gold_issues": ["Brute-force protection missing"]}
+{"id": "cr99", "language": "nodejs", "snippet": "require('request')(req.query.url).pipe(res)", "gold_issues": ["SSRF"]}
+{"id": "cr100", "language": "nodejs", "snippet": "app.use((req,res)=>{ throw new Error('boom') })", "gold_issues": ["Denial of service", "Information disclosure"]}

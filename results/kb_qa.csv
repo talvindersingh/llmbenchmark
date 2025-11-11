@@ -1,0 +1,194 @@
+task,id,model,exact_match,token_f1,groundedness,eval_count,eval_duration_ms,prompt_eval_count,prompt_eval_duration_ms,total_duration_ms,wall_time_ms,groundedness_score,output
+kb_qa,kb1,phi4-mini:3.8b,0.0,0.07594936708860758,1.0,95,9133699800,100,6321131500,17969961000,20024,5,"To submit an IT ticket for the SECOPS project, open ServiceNow portal (1), click 'Create/Submit a ticket' (2), select 'SECOPS' as your assignment group/project (3), provide summary and detailed description of the issue or request you are submitting about (4 & 5). If applicable to illustrate the problem better, attach screenshots. Finally, submit it by clicking on any available button that says ""submit"" at this stage ((6))."
+kb_qa,kb2,phi4-mini:3.8b,0.0,0.20689655172413793,1.0,60,5232900100,83,2784374200,8315172200,10382,5,"To restart a safe VDI session, save any ongoing tasks ((1)), log out of the operating system within your virtual desktop ((2)), close down Citrix or VMware Horizon client software (((3))), wait for two minutes to ensure all processes are terminated properly ((4)), and then reconnect."
+kb_qa,kb3,phi4-mini:3.8b,0.0,0.21428571428571427,0.0,67,6397808200,84,2861867700,9576188500,11614,5,"To book Meeting Room Conf-Azure-12F, open your Outlook calendar (line 1), create the meeting you want to schedule there (line 2), add ""Conf-Azure-12F"" from Rooms list as a location for this event (line 3), and then send out invites once it's set up."
+kb_qa,kb4,phi4-mini:3.8b,0.0,0.13043478260869562,0.0,53,5377998000,81,3023357700,8750976700,10810,5,"To appoint someone as an owner, open your Team on Microsoft Teams (line 1), navigate through 'More options' to 'Manage team', then go to the 'Members' tab and update their role to 'Owner'. (lines 2-3)"
+kb_qa,kb5,phi4-mini:3.8b,0.0,0.28571428571428575,0.0,48,5141277800,77,2988588100,8517986900,10564,5,"To request a license, open Service Catalog (line 1), search for ""app license"" (line 2), enter your cost center with its justification (lines 3-4), then submit the form (line 5)."
+kb_qa,kb6,phi4-mini:3.8b,0.0,0.13333333333333336,1.0,92,8943307900,87,3012487900,12386757100,14428,5,"To check out the `hotfix/login-issue` branch from Bitbucket, use these commands: (1) clone your repository with `git clone https://bitbucket.corp.example/org/repo.git`, then change directory to it using `cd repo`. Afterward, fetch all branches and tags in one go by running `git fetch --all`. Finally, switch to the desired branch via `git checkout hotfix/login-issue` (2)."
+kb_qa,kb7,phi4-mini:3.8b,0.0,0.17543859649122806,1.0,67,7607767400,123,4817513000,12789425300,14832,5,"Open File Explorer, right-click This PC > Map network drive (1), select Drive: P:, Folder: \\fileserver\Finance (4 & 5). Prerequisites include connecting via VPN for offsite access if necessary and ensuring you have permissions. Click Finish to complete the mapping process ((2) through ((6))."
+kb_qa,kb8,phi4-mini:3.8b,0.0,0.17391304347826086,0.0,71,6402965400,90,3091501200,9876558400,11936,5,"To set an out-of-office reply, go to (File → Automatic Replies), turn it on ((Turn on Automatic Replies)), enter your message for both internal and external contacts ((Enter internal and external messages)), choose the start and end time for when you want this auto-reply active ((Set start and end time)), then save these settings ((Save))."
+kb_qa,kb9,phi4-mini:3.8b,0.0,0.23529411764705882,1.0,75,6860633500,86,2880922100,10088739500,12127,5,"To create a Jira issue, open Jira (line 1), click 'Create' (line 2), select project 'ITSD' (line 3), choose an issue type (line 4), fill out the Summary and Description fields (lines 5 & 6). Then press Create. ((1)(2)(3)(4)(5)(6))"
+kb_qa,kb10,phi4-mini:3.8b,0.0,0.15384615384615385,1.0,57,4985280900,92,3534866700,8871213800,10934,5,"Clear your browser's cookies related to the SSO (1), try accessing it via a new incognito/private browsing session ((2)), check that both computer’s clock settings match with actual time ((3)), or re-enroll Multi-Factor Authentication if you've changed devices ((4))."
+kb_qa,kb11,phi4-mini:3.8b,0.0,0.28571428571428575,0.0,48,4262615200,77,2638259800,7234084100,9286,5,"To request a license, open Service Catalog (line 1), search for ""app license"" (line 2), enter your cost center with its justification (lines 3-4), then submit the form (line 5)."
+kb_qa,kb12,phi4-mini:3.8b,0.0,0.1923076923076923,0.0,70,7492715300,81,3320476300,11270761200,13312,5,"The logs for an AnyConnect VPN client can be found at `%ProgramData%/VPN/logs/` on Windows (line 1) or `/Library/Logs/VPN/` on macOS (line 2). Additionally, they may also collect through the App UI under Help → Collect Logs. (lines 3-4)"
+kb_qa,kb13,phi4-mini:3.8b,0.0,0.19047619047619047,0.0,64,5867114800,81,2695869100,8920114500,10968,5,"Jamf Self Service logs can be found at `/Library/Logs/Jamf/` (line 1) or `~/Library/Logs/Jamf/` (line 2), as well as within the Jamf policy history accessible through ""Self Service → Policies → History"" (line 3)."
+kb_qa,kb14,phi4-mini:3.8b,0.0,0.2564102564102564,1.0,78,9998208800,100,5494424700,15973554000,18038,5,"To configure an on-premises Data Gateway for Power BI, download it (1), sign into your Microsoft 365 account with corporate access (2), register a new gateway within Power BI Service using this account (3), input data source credentials to connect the services together (4), and finally map datasets from Power BI service back onto that same on-premises Data Gateway for seamless integration."
+kb_qa,kb15,phi4-mini:3.8b,0.0,0.16129032258064518,1.0,75,8128104500,113,5494916700,14124604100,16167,5,"To reset the macOS Sonoma's AnyConnect VPN client, go to ""Settings"" (1), then select ""Network & Internet,"" followed by choosing ""VPN."" Within that menu, click on ""AnyConnect,"" proceed with selecting ""Advanced,"" choose ""Reset / Clear Cached Credentials"" and finally reboot your device. Path: Settings > Network & Internet > VPN > Advanced"
+kb_qa,kb16,phi4-mini:3.8b,0.0,0.27272727272727276,0.0,54,4859600600,79,2772604400,7927766900,9972,4,"To add a user to a distribution list, open Exchange Admin Center (line 1), find 'fin-payroll@corp.example' (line 2), then click ""Add"" next to members. Finally, save your changes (lines 3-4)."
+kb_qa,kb17,phi4-mini:3.8b,0.0,0.11999999999999998,0.0,54,4876606400,74,2624492300,7841154600,9903,5,"To run a manual update, open ""Settings"" then go to ""Windows Update,"" click on ""Check for updates,"" install any that are found (line 2), followed by restarting your computer if instructed (""Restart when prompted""; lines 3 & 4)."
+kb_qa,kb18,phi4-mini:3.8b,0.0,0.17391304347826086,0.0,71,7367701400,90,3420890300,11211919900,13257,5,"To set an out-of-office reply, go to (File → Automatic Replies), turn it on ((Turn on Automatic Replies)), enter your message for both internal and external contacts ((Enter internal and external messages)), choose the start and end time for when you want this auto-reply active ((Set start and end time)), then save these settings ((Save))."
+kb_qa,kb19,phi4-mini:3.8b,0.0,0.27272727272727276,0.0,54,4898471600,79,2732111500,7926480800,9985,5,"To add a user to a distribution list, open Exchange Admin Center (line 1), find 'all-engineering@corp.example' (line 2), then click ""Add"" next to members. Finally, save your changes (lines 3-4)."
+kb_qa,kb20,phi4-mini:3.8b,0.0,0.1875,0.0,45,4527065100,79,2889036200,7750908900,9800,4,"To check out the main branch, use `git checkout main` after fetching all branches with `git fetch --all`. (Commands: git clone https://gitlab.corp.example/org/repo.git; cd repo)"
+kb_qa,kb1,llama3.2:1b,0.0,0.1142857142857143,0.0,90,3893325500,122,1027985100,5251504500,7301,4,"To submit an IT ticket in ServiceNow for project SECOPS, follow these steps:
+
+1. Open the ServiceNow portal (line 1).
+2. Click Create/Submit a ticket (line 2).
+3. Select project/assignment group: SECOPS (line 3).
+4. Provide summary and detailed description of the issue (lines 5-6).
+
+This will help you submit an effective IT ticket for your project SECOPS."
+kb_qa,kb2,llama3.2:1b,0.0,0.09523809523809525,0.0,121,5299512000,105,734706800,6418847700,8462,5,"To reboot a VDI (Virtual Desktop Infrastructure) session safely, follow these steps:
+
+1. Save your work (KB 1234) (line 3).
+2. Log off from the VDI OS (KB 5678) (line 5).
+3. Close the client (Citrix/VMware Horizon) (KB 9012) (line 7).
+4. Wait 2 minutes and reconnect (KB 3456) (line 9).
+
+This process ensures a safe shutdown of the VDI session before restarting it, minimizing data loss and disruptions to your work."
+kb_qa,kb3,llama3.2:1b,0.0,0.16438356164383564,0.0,105,4355318900,106,667800900,5372209300,7423,3,"To book the meeting room ""Conf-Azure-12F"", follow these steps:
+
+1. Open Outlook calendar (line 1).
+2. Create a new meeting (line 2).
+3. In the ""Meeting"" dialog box, select ""Room"" and then click on ""Add"" (line 3).
+4. In the ""Add Room"" dialog box, enter ""Conf-Azure-12F"" in the ""Name"" field (line 5).
+
+This will send an invitation to all attendees."
+kb_qa,kb4,llama3.2:1b,0.0,0.15126050420168063,0.0,142,6315351600,104,795343300,7508374200,9554,0,"You can't actually make someone an owner of a Teams channel. The provided KB context is incorrect.
+
+To become a member of a Teams channel, you need to click ""Join"" (not ""Change role to Owner"") on the Members tab in the team settings. To become an admin or owner, you would typically need to have specific permissions granted by the team administrator.
+
+Source: 
+1. Open Teams and go to the team (line 1)
+2. Click More options (…) → Manage team (line 2)
+3. Members tab → join channel (not change role to Owner) (line 3)
+
+Note: The KB context provided is incorrect, and this answer corrects it."
+kb_qa,kb5,llama3.2:1b,0.0,0.24615384615384617,1.0,69,2934828800,99,663349400,3893581300,5957,5,"To request a license for a paid app, follow these steps:
+
+1. (1) Open Service Catalog to access the service catalog.
+2. (2) Search for the app license item using its name or description.
+3. (3) Enter the cost center and justification as required.
+
+This process is outlined in the provided KB context."
+kb_qa,kb6,llama3.2:1b,0.0,0.11111111111111112,1.0,45,1913422300,107,798147500,2965724800,5009,1,"To check out the hotfix/login-issue branch from Bitbucket, use the following command:
+
+```bash
+git checkout hotfix/login-issue
+```
+
+This will switch your local repository to the specified branch. (1)"
+kb_qa,kb7,llama3.2:1b,0.0,0.15789473684210528,0.0,114,4938538100,146,1214399800,6479911200,8526,5,"To map the network drive P: to \\fileserver\Finance, follow these steps:
+
+1. Open File Explorer (line 1).
+2. Right-click This PC and choose Map network drive (line 2).
+3. Select Drive: P: (line 3).
+4. Folder: \\fileserver\Finance (line 4).
+5. Check 'Reconnect at sign-in' (line 5).
+6. Click Finish (line 6).
+
+This will map the network drive P: to the specified location, \\fileserver\Finance."
+kb_qa,kb8,llama3.2:1b,0.0,0.16438356164383564,0.0,86,3696591800,112,840710500,4841097600,6892,4,"To set an out-of-office (automatic replies) in Outlook, follow these steps:
+
+1. File → Automatic Replies (line 1)
+2. Turn on Automatic Replies (line 2)
+3. Enter internal and external messages (line 3)
+4. Set start and end time (lines 4-5)
+
+This will allow you to set a custom reply for incoming emails, with your name and contact information."
+kb_qa,kb9,llama3.2:1b,0.0,0.17647058823529413,0.0,100,4570594200,110,876182900,5772156700,7811,5,"To create a Jira issue in project ITSD, follow these steps:
+
+1. Open Jira (line 1).
+2. Click ""Create"" (line 3).
+3. Select ""Project: ITSD"" (line 4).
+4. Choose the ""Issue type"" (line 5) and select it.
+5. Fill in ""Summary"" and ""Description"" fields (lines 6-7).
+
+This will create a new Jira issue in project ITSD."
+kb_qa,kb10,llama3.2:1b,0.0,0.13114754098360656,0.0,75,3212523500,115,959781600,4466941700,6513,4,"To resolve SSO login failures with error 0xCAA20003, try the following steps:
+
+1. Clear browser cookies for the SSO domain (KB Context: [1])
+2. Try an incognito window (KB Context: [2])
+3. Ensure time and date are correct (KB Context: [3])
+
+These steps may help resolve the issue."
+kb_qa,kb11,llama3.2:1b,0.0,0.24615384615384617,1.0,69,2961610600,99,759642700,4018495700,6068,5,"To request a license for a paid app, follow these steps:
+
+1. (1) Open Service Catalog to access the service catalog.
+2. (2) Search for the app license item using its name or description.
+3. (3) Enter the cost center and justification as required.
+
+This process is outlined in the provided KB context."
+kb_qa,kb12,llama3.2:1b,0.0,0.1395348837209302,0.0,56,2356776200,100,736844200,3374109000,5418,5,"The logs for AnyConnect VPN client are located at:
+
+* Windows: %ProgramData%/VPN/logs/ (line 3)
+* macOS: /Library/Logs/VPN/ (line 2)
+
+Help → Collect logs (line 4) provides an alternative option."
+kb_qa,kb13,llama3.2:1b,0.0,0.08888888888888888,1.0,63,2653420500,102,733171500,3687189900,5724,2,"The correct answer is (1) /Library/Logs/Jamf/. 
+
+According to the provided KB context, Jamf logs are stored at ""/Library/Logs/Jamf/"".
+
+(1) This is supported by the first line of the KB context: ""Jamf Self Service logs on macOS?"""
+kb_qa,kb14,llama3.2:1b,0.0,0.1212121212121212,0.0,109,4724811400,123,1043932100,6097787900,8153,5,"To configure an on-premises data gateway for Power BI, follow these steps:
+
+1. (Line 2) Download and install the gateway (standard mode).
+ 
+2. Sign in with a corporate account.
+
+3. Register a new gateway in the Power BI Service.
+
+4. Add data source credentials to the gateway settings.
+
+5. Map datasets to the gateway by selecting them from the Data Sources pane.
+
+Note: The provided KB context does not mention additional steps or details for configuring an on-premises data gateway for Power BI."
+kb_qa,kb15,llama3.2:1b,0.0,0.08695652173913043,0.0,86,3841580400,135,1056618600,5224232900,7256,5,"To reset the AnyConnect VPN client on macOS Sonoma, follow these steps:
+
+1. Open Settings (Settings) on macOS Sonoma.
+2. Click Network & Internet.
+3. Select VPN.
+4. Choose AnyConnect.
+5. Click Advanced.
+6. Click Reset / Clear Cached Credentials.
+7. Reboot the device.
+
+This will reset the AnyConnect VPN client to its default settings, clearing any cached credentials."
+kb_qa,kb16,llama3.2:1b,0.0,0.1794871794871795,0.0,98,4497231800,101,681011900,5510038800,7560,3,"You can add a user to a distribution list by following these steps:
+
+1. Go to ""Distribution Lists"" (DL) > ""Fin-Payroll"" (find the specific list you want to edit)
+2. Click on the ""Members"" tab
+3. Click on the ""Add Member"" button
+4. Enter the user's email address and select their role
+5. Save changes
+
+Supporting line: 
+(1, 6) - Open Exchange Admin Center"
+kb_qa,kb17,llama3.2:1b,0.0,0.1388888888888889,1.0,84,3843469000,96,676936200,4840570700,6889,3,"To run Windows Update manually, follow these steps:
+
+1. Go to Settings (1) > Windows Update (2).
+2. Click on ""Check for updates"" (3).
+3. Select the updates you want to install from the list (4).
+
+Note: This option is not available in all versions of Windows, and it's recommended to use the built-in update feature instead.
+
+Source: KB 12345"
+kb_qa,kb18,llama3.2:1b,0.0,0.16438356164383564,0.0,86,3718170700,112,876500000,4907346700,6967,4,"To set an out-of-office (automatic replies) in Outlook, follow these steps:
+
+1. File → Automatic Replies (line 1)
+2. Turn on Automatic Replies (line 2)
+3. Enter internal and external messages (line 3)
+4. Set start and end time (lines 4-5)
+
+This will allow you to set a custom reply for incoming emails, with your name and contact information."
+kb_qa,kb19,llama3.2:1b,0.0,0.13333333333333333,0.0,177,7966373900,101,771510200,9138252700,11169,3,"You can add a user to a distribution list by following these steps:
+
+1. In the Exchange Admin Center, navigate to the ""Distribution Lists"" tab (line 3).
+2. Find the distribution list you want to modify (in this case, ""all-engineering@corp.example"").
+3. Click on the ""Members"" button (line 4) next to the list name.
+4. Click the ""Add Member"" button (line 5).
+5. Enter the user's email address and select their role (line 6).
+6. Click ""OK"" to add the user to the distribution list.
+
+This should add the specified user to the distribution list, as shown in the KB context: 
+
+- Open Exchange Admin Center
+- Find the DL: all-engineering@corp.example
+- Add the user as a member
+- Save (line 6)"
+kb_qa,kb20,llama3.2:1b,0.0,0.12121212121212122,1.0,38,1522538000,101,690752900,2530580300,4576,2,"To check out the main branch from GitLab, use the following command:
+
+```bash
+git checkout main
+```
+
+This will switch to the `main` branch. (1)"

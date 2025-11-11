@@ -1,0 +1,45 @@
+{"id": "cg6", "language": "java", "spec": "Build Spring Boot GraphQL API for entity 'Employee' with fields id:long, name:string, role:string. Add DataLoader batching and unit tests."}
+{"id": "cg7", "language": "python", "spec": "Generate Django REST Framework endpoints for entity 'Customer' (id:int, name:str, email:EmailStr). Use PostgreSQL, serializers, viewsets, and page-number pagination."}
+{"id": "cg8", "language": "java", "spec": "Create Quarkus REST CRUD for entity 'InventoryItem' (id:long, sku:string, quantity:int). Use Panache ORM, H2 dev DB, and validation."}
+{"id": "cg9", "language": "python", "spec": "Build a Flask API + CLI to manage 'Todo' items (id:int, title:str, completed:bool). Store in a JSON file; include Marshmallow schemas and unit tests."}
+{"id": "cg10", "language": "java", "spec": "Implement Spring Boot WebSocket chat service with endpoint '/chat' using STOMP. Provide simple in-memory room registry and JUnit 5 tests."}
+{"id": "cg11", "language": "python", "spec": "Create FastAPI file upload/download service for 'File' (id:str, filename:str, size:int, checksum:str). Save to local disk; compute checksum in background tasks."}
+{"id": "cg12", "language": "java", "spec": "Build Spring Boot REST for entity 'Article' (id:long, title:string, content:string, createdAt:Instant). Support pagination and sorting with Pageable."}
+{"id": "cg13", "language": "python", "spec": "Generate SQLAlchemy models and FastAPI endpoints for 'Invoice' (id:int, amount:Decimal, issued_at:datetime, paid:bool). Use PostgreSQL and Alembic migrations."}
+{"id": "cg14", "language": "java", "spec": "Create Spring Boot CRUD for 'Customer' with MapStruct DTO mapping and Lombok. Use H2 database and validation constraints."}
+{"id": "cg15", "language": "python", "spec": "Build Flask JWT auth (login/register) securing CRUD for 'Account' (id:int, username:str, email:str). Use SQLite and Swagger docs via flasgger."}
+{"id": "cg16", "language": "java", "spec": "Implement Micronaut service calling external REST API using HttpClient with Resilience4j circuit breaker and caching. Provide config via application.yml."}
+{"id": "cg17", "language": "python", "spec": "Create FastAPI WebSocket notifications for 'StockPrice' (symbol:str, price:float, timestamp:datetime). Broadcast to all clients; include heartbeat pings."}
+{"id": "cg18", "language": "java", "spec": "Build Spring Batch job to import CSV into 'User' table (id:long, name:string, email:string). Schedule with @Scheduled and write to H2 using JPA."}
+{"id": "cg19", "language": "python", "spec": "Generate SQLAlchemy models and service layer for 'OrderItem' (id:int, order_id:int, product_id:int, quantity:int). Provide FastAPI endpoints and pytest unit tests."}
+{"id": "cg20", "language": "java", "spec": "Create Spring Boot CRUD for 'Department' (id:long, name:string) with MySQL, JPA, and Flyway migrations. Add global exception handling."}
+{"id": "cg21", "language": "python", "spec": "Build FastAPI CRUD using Depends-based DI for 'Project' (id:int, name:str, owner:str, status:Literal). Use SQLite; add filtering by status."}
+{"id": "cg22", "language": "java", "spec": "Generate Quarkus gRPC service 'Greeter' with SayHello method, protobuf definitions, and RestAssured tests. Package with Maven."}
+{"id": "cg23", "language": "python", "spec": "Create Django Channels chat app for 'Room' (id:int, name:str). Use Redis channel layer, login-required rooms, and basic tests."}
+{"id": "cg24", "language": "java", "spec": "Implement Spring Boot OAuth2 Resource Server securing 'Order' endpoints with JWT. Provide test configuration and sample curl commands."}
+{"id": "cg25", "language": "python", "spec": "Build FastAPI image-processing endpoint using Pillow for 'ImageJob' (id:uuid, path:str, status:Literal). Use Celery + Redis for background tasks."}
+{"id": "cg26", "language": "java", "spec": "Create Micronaut Kafka producer/consumer for 'Event' (id:uuid, type:string, payload:json). Configure serializers and include integration tests."}
+{"id": "cg27", "language": "python", "spec": "Generate Flask RESTful API with Marshmallow schemas for 'Employee' (id:int, name:str, salary:float). SQLite persistence and custom error handlers."}
+{"id": "cg28", "language": "java", "spec": "Expose Spring Data REST repositories for 'Book' with custom search endpoints, projections, and HATEOAS links."}
+{"id": "cg29", "language": "python", "spec": "Create Typer CLI to scaffold a new package (name:str, author:str). Generate pyproject.toml, virtualenv instructions, and unit tests."}
+{"id": "cg30", "language": "java", "spec": "Build Spring Boot S3 file service for 'Document' (id:long, key:string, url:string). Use AWS SDK v2, upload/download endpoints, and config via env vars."}
+{"id": "cg31", "language": "python", "spec": "Implement FastAPI multi-tenant CRUD for 'Note' (id:int, body:str) using header 'X-Tenant'. Separate SQLite DB files per tenant and middleware for routing."}
+{"id": "cg32", "language": "java", "spec": "Create Quarkus REST CRUD for 'Invoice' (id:long, number:string, amount:BigDecimal) with Panache + Postgres and RestAssured tests."}
+{"id": "cg33", "language": "python", "spec": "Build Django app with Celery periodic task to purge stale sessions. Provide management command and unit tests."}
+{"id": "cg34", "language": "java", "spec": "Implement Spring WebFlux reactive endpoints for 'SensorReading' (id:long, sensorId:string, value:double, timestamp:Instant). Use R2DBC Postgres."}
+{"id": "cg35", "language": "python", "spec": "Generate FastAPI CRUD using SQLModel for 'Customer' (id:int, name:str, balance:Decimal). Include list filtering and pytest fixtures."}
+{"id": "cg36", "language": "java", "spec": "Create Micronaut service reading/writing 'CacheItem' (key:string, value:string, ttl:int) from Redis. Provide Dockerfile and JUnit tests."}
+{"id": "cg37", "language": "python", "spec": "Build Flask + SocketIO real-time notifications for 'OrderStatus' (order_id:int, status:str, at:datetime). Include client example and acknowledgements."}
+{"id": "cg38", "language": "java", "spec": "Generate Spring Boot REST for 'Product' (id:long, name:string, tags:List<string>) using JPA, MapStruct, Lombok, and validation groups."}
+{"id": "cg39", "language": "python", "spec": "Create asyncio-based web fetcher that loads URLs and extracts <title> into model 'FetchResult' (url:str, status:int, title:str). Provide logging and retries."}
+{"id": "cg40", "language": "java", "spec": "Implement Spring Boot scheduled job to fetch weather from external API and store 'Weather' (city:string, temp:double, fetchedAt:Instant) in DB."}
+{"id": "cg41", "language": "python", "spec": "Create FastAPI server-sent events stream for 'LogEvent' (id:int, message:str, ts:datetime). Provide client example and graceful shutdown."}
+{"id": "cg42", "language": "java", "spec": "Build Quarkus REST 'HelloResource' and configure native image build. Include Dockerfile and health endpoints."}
+{"id": "cg43", "language": "python", "spec": "Generate Flask REST app with Blueprints for 'Ticket' (id:int, subject:str, status:str, priority:int). Add OpenAPI docs and error handling."}
+{"id": "cg44", "language": "java", "spec": "Create Spring Security basic auth for CRUD endpoints over 'Report' (id:long, name:string, createdAt:Instant). Define roles ADMIN and USER."}
+{"id": "cg45", "language": "python", "spec": "Implement FastAPI OAuth2 password flow with JWT and refresh tokens for 'Account' (id:int, username:str, password_hash:str). Include revoke and rotate logic."}
+{"id": "cg46", "language": "java", "spec": "Build Spring Boot JPA one-to-many between 'Author' and 'Book' with DTOs, services, and controllers. Include cascade rules and tests."}
+{"id": "cg47", "language": "python", "spec": "Create FastAPI CRUD using Motor (MongoDB async) for 'Log' (id:ObjectId, level:str, message:str, ts:datetime). Add indexes and query by level/time."}
+{"id": "cg48", "language": "java", "spec": "Generate Micronaut REST for 'Customer' with OpenAPI/Swagger annotations, validation, and integration tests."}
+{"id": "cg49", "language": "python", "spec": "Build CSV-to-SQLite loader using pandas for 'Sale' (id:int, sku:str, amount:Decimal, sold_at:datetime). Provide CLI and simple API endpoints."}
+{"id": "cg50", "language": "java", "spec": "Implement Spring Boot integration tests with Testcontainers (PostgreSQL) for 'Order' CRUD. Include schema, repository, service, controller layers."}

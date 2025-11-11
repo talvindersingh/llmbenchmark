@@ -1,0 +1,2 @@
+model,sample_count,eval_count,eval_duration_ms,prompt_eval_count,prompt_eval_duration_ms,total_duration_ms,wall_time_ms
+phi4-mini:3.8b,11,234.455,27614282973,58.364,1717853690.909,30068730918.182,32117.636

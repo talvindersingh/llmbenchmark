@@ -1,0 +1,11 @@
+{"id":"iac1","target":"terraform","infra_spec":"Provision an AWS S3 bucket with versioning and default SSE-S3 encryption enabled"}
+{"id":"iac2","target":"terraform","infra_spec":"Create an AWS IAM role for EC2 with a policy allowing read-only access to S3"}
+{"id":"iac3","target":"terraform","infra_spec":"Build an AWS VPC (10.0.0.0/16) with one public and two private subnets across 2 AZs"}
+{"id":"iac4","target":"terraform","infra_spec":"Launch an AWS RDS PostgreSQL instance in Multi-AZ with automated backups retained for 7 days"}
+{"id":"iac5","target":"terraform","infra_spec":"Deploy an AWS Application Load Balancer fronting an Auto Scaling Group of EC2 instances"}
+{"id":"iac94","target":"azure-arm","infra_spec":"Configure autoscale on a VM Scale Set based on average CPU thresholds"}
+{"id":"iac95","target":"azure-arm","infra_spec":"Create a Disk Encryption Set backed by a customer-managed key in Key Vault"}
+{"id":"iac96","target":"azure-arm","infra_spec":"Provision a managed disk encrypted with a Disk Encryption Set and attach to a VM"}
+{"id":"iac97","target":"azure-arm","infra_spec":"Deploy a VM with boot diagnostics enabled to a storage account"}
+{"id":"iac98","target":"azure-arm","infra_spec":"Create an Availability Set with two fault domains and five update domains"}
+{"id":"iac99","target":"azure-arm","infra_spec":"Create a Proximity Placement Group and place a VM and VMSS in it for low latency"}

@@ -1,0 +1,3 @@
+model,sample_count,eval_count,eval_duration_ms,prompt_eval_count,prompt_eval_duration_ms,total_duration_ms,wall_time_ms
+llama3.2:1b,20,90.65,3960799460.0,109.8,830266405.0,5114947680.0,7161.4
+phi4-mini:3.8b,20,64.9,6418092135.0,87.8,3469984570.0,10366216420.0,12416.95
