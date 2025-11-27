@@ -14,6 +14,9 @@ It includes:
 > You can expand or customize any task/dataset without changing the core harness.
 
 ---
+*Flow diagram*
+<img width="627" height="749" alt="image" src="https://github.com/user-attachments/assets/87b196ad-7ff5-43d6-8f3a-0ca4ef435f6e" />
+
 
 ## Quick Start
 
