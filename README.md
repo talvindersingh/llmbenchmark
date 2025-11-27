@@ -16,7 +16,7 @@ It includes:
 ---
 *Flow diagram*
 
-<img width="527" height="649" alt="image" src="https://github.com/user-attachments/assets/87b196ad-7ff5-43d6-8f3a-0ca4ef435f6e" />
+<img width="427" height="549" alt="image" src="https://github.com/user-attachments/assets/87b196ad-7ff5-43d6-8f3a-0ca4ef435f6e" />
 
 
 ## Quick Start
